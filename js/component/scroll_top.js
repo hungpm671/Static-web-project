@@ -8,6 +8,4 @@ export function scrollTop() {
       btnTop.style.display = "none";
     }
   });
-  console.log(document.querySelector(".back-to-top"));
-  console.log(window.outerHeight);
 }

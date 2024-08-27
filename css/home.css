@@ -67,6 +67,11 @@
   max-width: 600px;
 }
 
+.navbar-toggler {
+  font-size: 30px !important;
+  color: #ffffff !important;
+}
+
 /* section: food-menu */
 .food-menu {
   padding-block: 90px;

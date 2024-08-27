@@ -11,5 +11,8 @@ function App() {
   reviewStore();
   signIn();
   scrollTop();
+
+  const btnNavToggle = document.querySelector(".navbar-toggler");
+  btnNavToggle.innerHTML = `<i class="ph ph-list"></i>`;
 }
 App();
