@@ -1,0 +1,31 @@
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+  .about-section {
+    border-image: linear-gradient(to right, #0001, #000) 1 fill;
+  }
+
+  .about-thumb {
+    width: 50%;
+  }
+
+  .reviewer {
+    min-width: 450px;
+  }
+  .reviewer img {
+    width: 18% !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .reviewer {
+    max-width: 550px;
+  }
+  .reviewer img {
+    width: 15% !important;
+  }
+}

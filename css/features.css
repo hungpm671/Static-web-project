@@ -1,0 +1,100 @@
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+#user-menu {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.form-sign_in {
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  animation: slide 0.5s linear;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.input-field {
+  all: unset;
+  /* border: 1px solid #ccc; */
+  padding: 10px 15px;
+  border-radius: 8px;
+  outline: 2px solid var(--second-color);
+  background-color: transparent;
+  transition: outline-color 500ms;
+}
+
+.input-field:is(:focus, :valid) {
+  outline-color: var(--primary-color);
+}
+
+.input-field_label {
+  translate: 10px 10px;
+  color: var(--second-color);
+  transition: translate 500ms, scale 500ms;
+}
+
+.input-field:focus + .input-field_label,
+.input-field:valid + .input-field_label {
+  padding-inline: 5px;
+  translate: 10px -14px;
+  scale: 0.8;
+  color: var(--primary-color);
+  background-color: #fff;
+}
+
+.btn-toggle_pass {
+  all: unset;
+  right: 10px;
+}
+
+.btn-submit_form {
+  background: var(--primary-color);
+  border-radius: 8px;
+}
+
+.redirect {
+  background: var(--second-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.redirect .redirect-link {
+  color: var(--primary-color);
+}
+
+/* sign in - sign up */
+#user-menu {
+  display: none;
+}
+
+#user-menu .sign-up_form {
+  display: none;
+}
+
+.back-to-top {
+  display: none;
+  font-size: 24px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  background-color: var(--second-color);
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
