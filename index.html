@@ -83,33 +83,7 @@
                   <i class="ph ph-user-circle fs-4"></i>
                   <span class="ms-1">Đăng nhập</span>
                 </a>
-                <ul class="dropdown-menu">
-                  <!-- Not logged in -->
-                  <li class="btn-sign-in">
-                    <a class="dropdown-item d-flex align-items-center" href="#"
-                      ><i class="ph ph-sign-in"></i>
-                      <span class="ms-2">Sign in</span>
-                    </a>
-                  </li>
-                  <!-- <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#"
-                      ><i class="ph ph-info"></i>
-                      <span class="ms-2">Thông tin cá nhân</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#"
-                      ><i class="ph ph-basket"></i>
-                      <span class="ms-2">Giỏ hàng</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#"
-                      ><i class="ph ph-sign-out"></i>
-                      <span class="ms-2">Đăng xuất</span>
-                    </a>
-                  </li> -->
-                </ul>
+                <ul class="dropdown-menu"></ul>
               </li>
               <li class="nav-item">
                 <a
@@ -210,7 +184,7 @@
           </div>
         </div>
 
-        <div class="embla__dots my-5"></div>
+        <div class="embla__dots d-flex align-items-center my-5"></div>
       </div>
     </header>
 
@@ -245,7 +219,7 @@
         </div>
 
         <div class="food-list">
-          <div class="row g-3"></div>
+          <div class="row g-4"></div>
         </div>
 
         <div
@@ -506,67 +480,95 @@
       <!-- sign in -->
       <div class="container sign-in_form">
         <div
-          class="form-sign_in position-absolute bg-white pt-4 overflow-hidden"
+          class="form-sign_in border-radius-8 position-absolute bg-white overflow-hidden"
         >
-          <!-- form sign in -->
-          <form action="" class="d-flex flex-column px-3">
-            <h2 class="font-edu text-warning fw-bold fs-2 text-center">
-              Sign In
-            </h2>
+          <div class="row m-0">
+            <!-- form sign in -->
+            <div class="col-12 col-lg-6">
+              <form action="index.html" class="d-flex flex-column px-3">
+                <h2 class="font-edu text-warning fw-bold fs-2 text-center pt-4">
+                  Sign In
+                </h2>
+                <!-- input group -->
+                <!-- email -->
+                <div
+                  class="input-group_form position-relative d-flex flex-column mt-3"
+                >
+                  <input type="email" class="input-field" required />
+                  <label
+                    for="email"
+                    class="input-field_label position-absolute top-0 start-0"
+                    >Email</label
+                  >
+                </div>
 
-            <!-- input group -->
-            <div
-              class="input-group_form position-relative d-flex flex-column mt-3"
-            >
-              <input type="text" class="input-field" required />
-              <label
-                for="email"
-                class="input-field_label position-absolute top-0 start-0"
-                >Email</label
-              >
+                <!-- password -->
+                <div
+                  class="input-group_form position-relative d-flex flex-column mt-3"
+                >
+                  <div class="position-relative d-flex align-items-center">
+                    <button
+                      class="btn-toggle_pass position-absolute d-flex align-items-center"
+                    >
+                      <i class="ph ph-eye"></i>
+                    </button>
+                    <input
+                      type="password"
+                      class="input-field flex-grow-1"
+                      required
+                    />
+                    <label
+                      for="password"
+                      class="input-field_label position-absolute top-0 start-0"
+                      >Password</label
+                    >
+                  </div>
+                </div>
+
+                <!-- error -->
+                <span class="error-alert text-danger"
+                  >* Password must be at least 8 characters long, without
+                  special characters.</span
+                >
+
+                <!-- forgot password link -->
+                <a
+                  href="#"
+                  class="forgot-pass mt-2 text-center text-decoration-none"
+                  >Forgot password?</a
+                >
+
+                <!-- submit -->
+                <input
+                  type="submit"
+                  class="btn-submit_form my-3 border-0 text-white p-2"
+                  value="Sign In"
+                />
+              </form>
             </div>
 
-            <div
-              class="input-group_form position-relative d-flex flex-column mt-3"
-            >
-              <div class="position-relative d-flex align-items-center">
+            <!-- redirect -->
+            <div class="col-12 col-lg-6 bg-second-color d-none d-lg-flex">
+              <div
+                class="d-flex flex-column justify-content-center align-items-center px-3"
+              >
+                <h2 class="font-edu text-white">Hello, Friend</h2>
+                <p class="text-center text-white">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+                  dolor aliquid maiores nemo corrupti laudantium animi iure.
+                </p>
                 <button
-                  class="btn-toggle_pass position-absolute d-flex align-items-center"
+                  class="btn-show-sign_up border-radius-8 bg-secondary d-flex align-items-center justify-content-center my-3 border-0 text-white p-2 w-100"
                 >
-                  <i class="ph ph-eye"></i>
+                  Sign Up <i class="ph ph-arrow-square-in fs-4"></i>
                 </button>
-                <input
-                  type="password"
-                  class="input-field flex-grow-1"
-                  required
-                />
-                <label
-                  for="password"
-                  class="input-field_label position-absolute top-0 start-0"
-                  >Password</label
-                >
               </div>
             </div>
-
-            <!-- forgot password link -->
-            <a
-              href="#"
-              class="forgot-pass mt-2 text-center text-decoration-none"
-              >Forgot password?</a
-            >
-
-            <!-- submit -->
-            <button
-              type="submit"
-              class="btn-submit_form mt-3 border-0 text-white p-2"
-            >
-              Sign In
-            </button>
-          </form>
+          </div>
 
           <!-- redirect -->
           <div
-            class="redirect d-flex justify-content-center text-white mt-3 py-3"
+            class="redirect btn-show-sign_up d-flex justify-content-center text-white py-3 d-lg-none"
           >
             <a
               href="#"
@@ -577,7 +579,7 @@
 
           <!-- close window -->
           <button
-            class="close_btn position-absolute top-0 end-0 p-1 border-0 bg-transparent"
+            class="close_btn position-absolute top-0 end-0 p-1 border-0 bg-transparent color-primary-color"
           >
             <i class="ph ph-x-circle fs-3"></i>
           </button>
@@ -587,93 +589,116 @@
       <!-- sign up -->
       <div class="container sign-up_form">
         <div
-          class="form-sign_in position-absolute bg-white pt-4 overflow-hidden"
+          class="form-sign_in border-radius-8 position-absolute bg-white overflow-hidden"
         >
-          <!-- form sign up -->
-          <form action="" class="d-flex flex-column px-3">
-            <h2 class="font-edu text-warning fw-bold fs-2 text-center">
-              Register
-            </h2>
-
-            <!-- input group -->
-            <div
-              class="input-group_form position-relative d-flex flex-column mt-3"
-            >
-              <input type="text" class="input-field" required />
-              <label
-                for="name"
-                class="input-field_label position-absolute top-0 start-0"
-                >Name</label
+          <div class="row m-0">
+            <!-- redirect -->
+            <div class="col-12 col-lg-6 bg-second-color d-none d-lg-flex">
+              <div
+                class="d-flex flex-column justify-content-center align-items-center px-3"
               >
-            </div>
-
-            <div
-              class="input-group_form position-relative d-flex flex-column mt-3"
-            >
-              <input type="text" class="input-field" required />
-              <label
-                for="email"
-                class="input-field_label position-absolute top-0 start-0"
-                >Email</label
-              >
-            </div>
-
-            <div
-              class="input-group_form position-relative d-flex flex-column mt-3"
-            >
-              <div class="position-relative d-flex align-items-center">
+                <h2 class="font-edu text-white">Hello, Friend</h2>
+                <p class="text-center text-white">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+                  dolor aliquid maiores nemo corrupti laudantium animi iure.
+                </p>
                 <button
-                  class="btn-toggle_pass position-absolute d-flex align-items-center"
+                  class="btn-show-sign_up close_btn border-radius-8 bg-secondary d-flex align-items-center justify-content-center my-3 border-0 text-white p-2 w-100"
                 >
-                  <i class="ph ph-eye"></i>
+                  Sign In <i class="ph ph-arrow-square-in fs-4"></i>
                 </button>
-                <input
-                  type="password"
-                  class="input-field flex-grow-1"
-                  required
-                />
-                <label
-                  for="password"
-                  class="input-field_label position-absolute top-0 start-0"
-                  >Password</label
-                >
               </div>
             </div>
 
-            <div
-              class="input-group_form position-relative d-flex flex-column mt-3"
-            >
-              <div class="position-relative d-flex align-items-center">
-                <button
-                  class="btn-toggle_pass position-absolute d-flex align-items-center"
+            <!-- form sign up -->
+            <div class="col-12 col-lg-6">
+              <form action="" class="d-flex flex-column px-3">
+                <h2 class="font-edu text-warning fw-bold fs-2 text-center pt-4">
+                  Register
+                </h2>
+                <!-- input group -->
+                <div
+                  class="input-group_form position-relative d-flex flex-column mt-3"
                 >
-                  <i class="ph ph-eye"></i>
-                </button>
-                <input
-                  type="password"
-                  class="input-field flex-grow-1"
-                  required
-                />
-                <label
-                  for="password"
-                  class="input-field_label position-absolute top-0 start-0"
-                  >Confirm Password</label
+                  <input type="text" class="input-field" required />
+                  <label
+                    for="name"
+                    class="input-field_label position-absolute top-0 start-0"
+                    >Name</label
+                  >
+                </div>
+                <div
+                  class="input-group_form position-relative d-flex flex-column mt-3"
                 >
-              </div>
-            </div>
+                  <input type="email" class="input-field" required />
+                  <label
+                    for="email"
+                    class="input-field_label position-absolute top-0 start-0"
+                    >Email</label
+                  >
+                </div>
+                <div
+                  class="input-group_form position-relative d-flex flex-column mt-3"
+                >
+                  <div class="position-relative d-flex align-items-center">
+                    <button
+                      class="btn-toggle_pass position-absolute d-flex align-items-center"
+                    >
+                      <i class="ph ph-eye"></i>
+                    </button>
+                    <input
+                      type="password"
+                      class="input-field flex-grow-1 password-input"
+                      required
+                    />
+                    <label
+                      for="password"
+                      class="input-field_label position-absolute top-0 start-0"
+                      >Password</label
+                    >
+                  </div>
+                </div>
+                <div
+                  class="input-group_form position-relative d-flex flex-column mt-3"
+                >
+                  <div class="position-relative d-flex align-items-center">
+                    <button
+                      class="btn-toggle_pass position-absolute d-flex align-items-center"
+                    >
+                      <i class="ph ph-eye"></i>
+                    </button>
+                    <input
+                      type="password"
+                      class="input-field flex-grow-1 confirm-input"
+                      required
+                    />
+                    <label
+                      for="confirm"
+                      class="input-field_label position-absolute top-0 start-0"
+                      >Confirm Password</label
+                    >
+                  </div>
+                </div>
 
-            <!-- submit -->
-            <button
-              type="submit"
-              class="btn-submit_form mt-3 border-0 text-white p-2"
-            >
-              Sign Up
-            </button>
-          </form>
+                <!-- error -->
+                <span class="error-alert text-danger"
+                  >* Password must be at least 8 characters long, without
+                  special characters.</span
+                >
+
+                <!-- submit -->
+                <input
+                  type="submit"
+                  class="btn-submit_form mt-3 border-0 text-white p-2 mb-3"
+                  value="Sign Up"
+                />
+              </form>
+            </div>
+          </div>
 
           <!-- redirect -->
           <div
-            class="redirect d-flex justify-content-center text-white mt-3 py-3"
+            class="redirect close_btn d-flex justify-content-center text-white py-3 d-lg-none"
           >
             <a
               href="#"
@@ -684,7 +709,7 @@
 
           <!-- close window -->
           <button
-            class="close_btn position-absolute top-0 end-0 p-1 border-0 bg-transparent"
+            class="close_btn color-primary-color position-absolute top-0 end-0 p-1 border-0 bg-transparent"
           >
             <i class="ph ph-x-circle fs-3"></i>
           </button>

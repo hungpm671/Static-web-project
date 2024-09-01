@@ -1,7 +1,7 @@
 export function bannerCarousel() {
   const emblaNode = document.querySelector(".embla");
   const options = { loop: true };
-  const plugins = [EmblaCarouselAutoplay({ delay: 3000 })];
+  const plugins = [EmblaCarouselAutoplay({ delay: 5000 })];
   const embla = EmblaCarousel(emblaNode, options, plugins);
 
   const dotsNode = document.querySelector(".embla__dots");

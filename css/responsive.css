@@ -1,10 +1,17 @@
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
+  .form-sign_in {
+    width: 400px !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
 }
 
 @media screen and (min-width: 992px) {
+  .form-sign_in {
+    width: 700px !important;
+  }
+
   .about-section {
     border-image: linear-gradient(to right, #0001, #000) 1 fill;
   }

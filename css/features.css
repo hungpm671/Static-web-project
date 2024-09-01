@@ -1,3 +1,19 @@
+.bg-second-color {
+  background: var(--second-color) !important;
+}
+
+.bg-primary-color {
+  background: var(--primary-color) !important;
+}
+
+.color-primary-color {
+  color: var(--primary-color) !important;
+}
+
+.border-radius-8 {
+  border-radius: 8px !important;
+}
+
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
   display: none;
@@ -13,7 +29,6 @@ input[type="password"]::-ms-clear {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 8px;
   animation: slide 0.5s linear;
 }
 
@@ -83,6 +98,10 @@ input[type="password"]::-ms-clear {
 }
 
 #user-menu .sign-up_form {
+  display: none;
+}
+
+.error-alert {
   display: none;
 }
 

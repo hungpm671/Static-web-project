@@ -1,13 +1,4 @@
-// Config Axios client
-const foods = axios.create({
-  baseURL: "https://66be374d74dfc195586ee7a3.mockapi.io/foods/",
-});
-
-// Foods
-async function getFoods() {
-  const res = await foods.get("product-list");
-  return res.data;
-}
+import { getFoods } from "../api.js";
 
 export function foodMenu() {
   const emblaNode = document.querySelector(".embla_menu");
@@ -106,4 +97,7 @@ function selectFood() {
 export function foodList() {
   getFoods().then((data) => renderFood(data, category));
   selectFood();
+
+  const btnNavToggle = document.querySelector(".navbar-toggler");
+  btnNavToggle.innerHTML = `<i class="ph ph-list"></i>`;
 }
