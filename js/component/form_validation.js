@@ -1,3 +1,4 @@
+import { Cart } from "./cart.js";
 import { clearLocalStorage, Set_Up_UserOption } from "./setup_user_option.js";
 
 export function btnFormValidation() {
@@ -9,6 +10,8 @@ export function btnFormValidation() {
   const showPassword = document.querySelectorAll(".btn-toggle_pass");
   const showSignUp = document.querySelectorAll(".btn-show-sign_up");
   const btnLogOut = document.querySelector(".btn-logout");
+  const btnCart = document.querySelector(".btn-cart-user");
+  const showCart = document.querySelector("#cart");
 
   if (btnLogOut) {
     btnLogOut.addEventListener("click", function () {
@@ -62,4 +65,11 @@ export function btnFormValidation() {
       }
     });
   });
+
+  if (btnCart) {
+    btnCart.addEventListener("click", function () {
+      Cart();
+      showCart.style.display = "block";
+    });
+  }
 }

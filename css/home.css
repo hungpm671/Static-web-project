@@ -95,6 +95,11 @@
   min-width: 0;
 }
 
+.food-menu .embla-menu-item {
+  cursor: pointer;
+  user-select: none;
+}
+
 .food-menu .embla-menu-item.active {
   background: var(--second-color);
   color: #ffffff;
@@ -109,12 +114,18 @@
 .food-menu .food-item {
   background: var(--second-color);
   border-radius: 15px;
+  cursor: pointer;
+}
+
+.food-menu .food-item:hover .food-img {
+  transform: scale(1.1);
 }
 
 .food-menu .food-img {
   min-width: 100%;
   height: 215px;
   border-bottom-left-radius: 45px;
+  transition: transform 500ms ease, scale 500ms ease;
 }
 
 .food-menu .food-title {

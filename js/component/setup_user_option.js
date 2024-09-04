@@ -31,7 +31,7 @@ export function Set_Up_UserOption() {
             </a>
             </li>
             <li>
-            <a class="dropdown-item d-flex align-items-center" href="#"
+            <a class="dropdown-item btn-cart-user d-flex align-items-center" href="#"
                 ><i class="ph ph-basket"></i>
                 <span class="ms-2">Giỏ hàng</span>
             </a>

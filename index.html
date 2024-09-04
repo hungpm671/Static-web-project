@@ -724,6 +724,125 @@
       </div>
     </a>
 
+    <!-- dish infomation -->
+    <section
+      id="dish-infomation"
+      class="position-fixed top-0 bottom-0 start-0 end-0"
+    >
+      <div
+        class="container dish-info position-absolute bg-white overflow-auto py-3 border-radius-8"
+      ></div>
+    </section>
+
+    <!-- cart -->
+    <section id="cart" class="position-fixed top-0 bottom-0 start-0 end-0">
+      <div
+        class="container cart-infomation position-absolute bg-white py-3 overflow-auto border-radius-8"
+      >
+        <div class="d-flex align-items-center">
+          <a class="navbar-brand font-edu fw-bold text-black" href="#"
+            ><span class="font-edu text-warning fs-3">NoBuy</span>nostay</a
+          >
+          <h4 class="font-edu color-primary-color m-0 ms-3">Cart</h4>
+        </div>
+        <div class="d-flex align-items-center gap-2 mt-2">
+          <input type="checkbox" name="checkbox" id="check-all" />
+          <label for="checkbox">All</label>
+        </div>
+        <hr />
+        <div class="row g-4">
+          <!-- cart item -->
+          <div class="col-12 col-lg-6">
+            <div class="cart-list d-flex flex-column gap-4"></div>
+          </div>
+
+          <!-- Payment information -->
+          <div class="col-12 col-lg-6">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    <span class="d-flex align-items-center gap-2"
+                      ><i class="ph ph-map-pin"></i> Địa chỉ nhận hàng</span
+                    >
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body d-flex flex-column gap-3">
+                    <input
+                      type="text"
+                      class="input-address"
+                      placeholder="Họ tên"
+                    />
+                    <input
+                      type="text"
+                      class="input-address"
+                      placeholder="Số điện thoại"
+                    />
+                    <input
+                      type="text"
+                      class="input-address"
+                      placeholder="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã"
+                    />
+                    <input
+                      type="text"
+                      class="input-address"
+                      placeholder="Tên đường, Tòa nhà, Số nhà"
+                    />
+                    <div>
+                      <input
+                        type="text"
+                        class="input-address"
+                        placeholder="Mã khuyến mãi"
+                      />
+                      <button
+                        class="btn-discount-code border-0 border-radius-8 text-white bg-second-color"
+                      >
+                        Xác nhận
+                      </button>
+                    </div>
+                    <textarea
+                      name="text"
+                      class="textarea-note p-2 border-radius-8"
+                      placeholder="Ghi chú"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment menthod -->
+            <div class="pay-menthod mt-3">
+              <div class="d-flex align-items-center">
+                <input type="radio" />
+                <label for="epay" class="ms-2">Thẻ tín dụng/Ghi nợ</label>
+              </div>
+              <div class="d-flex align-items-center">
+                <input type="radio" />
+                <label for="epay" class="ms-2">Thanh toán khi nhận hàng</label>
+              </div>
+            </div>
+            <button
+              class="btn-order bg-primary-color text-white border-0 border-radius-8 w-100 mt-3"
+            >
+              Xác nhận đặt hàng
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------------------------------------script----------------------------------------------- -->
     <!-- icon -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
