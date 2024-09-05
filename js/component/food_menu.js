@@ -1,5 +1,6 @@
 import { getFoods, getUsers } from "../api.js";
 import { addToCart } from "./add_to_cart.js";
+import { ToastMessage } from "./toast_message.js";
 
 // classify food
 export function foodMenu() {
@@ -44,7 +45,7 @@ function renderFood(foodArray = [], category) {
                       "vi-VN"
                     )}₫</div>
                     <button
-                      class="btn-cart d-flex align-items-center justify-content-center bg-warning border-0 text-white"
+                      class="btn-cart btn-toast_msg d-flex align-items-center justify-content-center bg-warning border-0 text-white"
                     >
                       <i class="ph ph-shopping-cart fs-4"></i>
                     </button>
@@ -60,6 +61,7 @@ function renderFood(foodArray = [], category) {
   showAll();
   addToCart();
   toggleFoodInfomation(foodArray);
+  ToastMessage();
 }
 
 // Toggle see more/see less

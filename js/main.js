@@ -5,6 +5,7 @@ import { scrollTop } from "./component/scroll_top.js";
 import { Sign_In } from "./component/sign_in.js";
 import { Set_Up_UserOption } from "./component/setup_user_option.js";
 import { Sign_Up } from "./component/sign_up.js";
+import { ToastMessage } from "./component/toast_message.js";
 
 function App() {
   bannerCarousel();
@@ -15,5 +16,6 @@ function App() {
   Set_Up_UserOption();
   Sign_In();
   Sign_Up();
+  ToastMessage();
 }
 App();

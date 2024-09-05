@@ -1,4 +1,5 @@
 import { getFoods, getUsers } from "../api.js";
+import { ToastMessage } from "./toast_message.js";
 
 function render(user) {
   const cartList = document.querySelector(".cart-list");
@@ -57,7 +58,7 @@ function render(user) {
         </div>
         
         <div class="cart-remove">
-            <button class="btn-remove border-0 p-2 d-flex bg-transparent"><i class="ph ph-x"></i></button>
+            <button class="btn-remove btn-toast_msg border-0 p-2 d-flex bg-transparent"><i class="ph ph-x"></i></button>
         </div>
       </div>`;
             })
@@ -68,6 +69,7 @@ function render(user) {
     checkedCart();
     changeQuantity();
     removeCartItem();
+    ToastMessage();
   });
 }
 
