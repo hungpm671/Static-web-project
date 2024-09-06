@@ -11,7 +11,11 @@ function render(user) {
         const findFood = foods.find(
           (food) => food.food_id === usercart.food_id
         );
-        filteredFoods.push({ ...findFood, quantity: usercart.quantity });
+        filteredFoods.push({
+          ...findFood,
+          quantity: usercart.quantity,
+          isChecked: usercart.isChecked,
+        });
       }
     }
 
@@ -21,7 +25,9 @@ function render(user) {
             .map((food) => {
               return `
       <div class="cart-item d-flex" data-item="${food.food_id}">
-        <input type="checkbox" name="checkbox" class="check-item"/>
+        <input type="checkbox" name="checkbox" class="check-item" ${
+          food.isChecked ? "checked" : ""
+        }/>
         <img
           src="${food.image}"
           alt="${food.name}"
@@ -66,6 +72,7 @@ function render(user) {
         : "<h2>Empty Cart</h2>";
 
     cartList.innerHTML = html;
+    getUsers().then(totalItemChecked);
     checkedCart();
     changeQuantity();
     removeCartItem();
@@ -82,73 +89,6 @@ function renderYourCart(users = []) {
     );
 
     render(user);
-    // getFoods().then((foods) => {
-    //   const filteredFoods = [];
-
-    //   if (user.cart.length > 0) {
-    //     for (let usercart of user.cart) {
-    //       const findFood = foods.find(
-    //         (food) => food.food_id === usercart.food_id
-    //       );
-    //       filteredFoods.push({ ...findFood, quantity: usercart.quantity });
-    //     }
-    //   }
-
-    //   const html =
-    //     filteredFoods.length > 0
-    //       ? filteredFoods
-    //           .map((food) => {
-    //             return `
-    //     <div class="cart-item d-flex" data-item="${food.food_id}">
-    //       <input type="checkbox" name="checkbox" class="check-item"/>
-    //       <img
-    //         src="${food.image}"
-    //         alt="${food.name}"
-    //         width="100"
-    //         height="100"
-    //         class="object-fit-cover ms-3"
-    //       />
-    //       <div class="cart-info d-flex flex-column ms-3 flex-grow-1">
-    //         <span class="font-edu fw-bold">${food.name}</span>
-    //         <select name="select" id="select-size" class="border-0 w-25 mt-2">
-    //           <option selected>Size Selection</option>
-    //           ${food.category.map((category) => {
-    //             return `<option value="${category}">${category}</option>`;
-    //           })}
-    //         </select>
-    //         <div
-    //           class="cart-option mt-3 d-flex justify-content-between align-items-center"
-    //         >
-    //           <div class="price text-danger" data-price="${
-    //             food.price
-    //           }">${Number(food.price).toLocaleString("vi-VN")}₫</div>
-    //           <div class="quantity d-flex align-items-center">
-    //             <button class="btn-minus border-0">-</button>
-    //             <input
-    //               type="number"
-    //               value="${Number(food.quantity)}"
-    //               min="1"
-    //               max="10"
-    //               class="text-end border-0"
-    //             />
-    //             <button class="btn-plus border-0">+</button>
-    //           </div>
-    //         </div>
-    //       </div>
-
-    //       <div class="cart-remove">
-    //           <button class="btn-remove border-0 p-2 d-flex bg-transparent"><i class="ph ph-x"></i></button>
-    //       </div>
-    //     </div>`;
-    //           })
-    //           .join("")
-    //       : "<h2>Empty Cart</h2>";
-
-    //   cartList.innerHTML = html;
-    //   checkedCart();
-    //   changeQuantity();
-    //   removeCartItem();
-    // });
   }
   closeCart();
 }
@@ -181,58 +121,116 @@ function checkedCart() {
     cartItems.forEach((item) => {
       item.checked = allChecked.checked;
     });
-    totalAllCart();
-  });
 
-  // select each item
-  totalEachCart();
-}
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userId = JSON.parse(storedUser).user_id;
 
-// update total all cart items
-function totalAllCart() {
-  const cartItems = document.querySelectorAll(".check-item");
-  const totalCart = document.querySelector("#cart .cart-total");
-  totalCart.textContent = 0;
-  cartItems.forEach((item) => {
-    if (item.checked) {
-      const price = item
-        .closest(".cart-item")
-        .querySelector(".price")
-        .getAttribute("data-price");
-      const quantity = item
-        .closest(".cart-item")
-        .querySelector(".quantity input[type='number']").value;
+      getUsers().then((updatedUsers) => {
+        const idUser = updatedUsers.findIndex((user) => user.user_id == userId);
 
-      const totalPrice = price * quantity;
+        const usersURL = `https://66cf273a901aab2484211ea3.mockapi.io/users/users/${
+          Number(idUser) + 1
+        }`;
 
-      totalCart.textContent = Number(totalCart.textContent) + totalPrice;
-    } else {
-      totalCart.textContent = 0;
+        const updatedCart = updatedUsers[idUser].cart.map((item) => {
+          return {
+            ...item,
+            isChecked: allChecked.checked,
+          };
+        });
+
+        axios
+          .put(usersURL, {
+            cart: updatedCart,
+          })
+          .then((response) => {
+            render(response.data);
+          })
+          .catch((error) => {
+            console.error("Error updating cart:", error);
+          });
+      });
     }
-  });
-}
 
-// update total each cart item
-function totalEachCart() {
+    getUsers().then(totalItemChecked);
+  });
+
+  // select item
   const cartItems = document.querySelectorAll(".check-item");
   cartItems.forEach((item) => {
     item.addEventListener("change", function () {
-      const totalCart = document.querySelector("#cart .cart-total");
-      const price = item
-        .closest(".cart-item")
-        .querySelector(".price")
-        .getAttribute("data-price");
-      const quantity = item
-        .closest(".cart-item")
-        .querySelector(".quantity input[type='number']").value;
-      const totalPrice = price * quantity;
-      if (item.checked) {
-        totalCart.textContent = Number(totalCart.textContent) + totalPrice;
-      } else {
-        totalCart.textContent = Number(totalCart.textContent) - totalPrice;
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        const userId = JSON.parse(storedUser).user_id;
+
+        getUsers().then((updatedUsers) => {
+          const idUser = updatedUsers.findIndex(
+            (user) => user.user_id == userId
+          );
+
+          const usersURL = `https://66cf273a901aab2484211ea3.mockapi.io/users/users/${
+            Number(idUser) + 1
+          }`;
+
+          const updatedCart = [];
+          const idFood = item.closest(".cart-item").getAttribute("data-item");
+          for (let usercart of updatedUsers[idUser].cart) {
+            if (usercart.food_id == idFood) {
+              usercart.isChecked = item.checked;
+            }
+            updatedCart.push(usercart);
+          }
+
+          axios
+            .put(usersURL, {
+              cart: updatedCart,
+            })
+            .then((response) => {
+              render(response.data);
+              getUsers().then(totalItemChecked);
+            })
+            .catch((error) => {
+              console.error("Error updating cart:", error);
+            });
+        });
       }
     });
   });
+}
+
+// update total all cart items
+function totalItemChecked(users) {
+  const storedUser = localStorage.getItem("user");
+  if (storedUser) {
+    const user = users.find(
+      (user) => user.user_id === JSON.parse(storedUser).user_id
+    );
+
+    getFoods().then((foods) => {
+      const filteredFoods = [];
+
+      if (user.cart.length > 0) {
+        for (let usercart of user.cart) {
+          const findFood = foods.find(
+            (food) => food.food_id === usercart.food_id
+          );
+          filteredFoods.push({
+            ...findFood,
+            quantity: usercart.quantity,
+            isChecked: usercart.isChecked,
+          });
+        }
+      }
+
+      const totalPrice = filteredFoods
+        .filter((item) => item.isChecked)
+        .reduce((total, item) => total + item.price * item.quantity, 0);
+
+      const totalCart = document.querySelector("#cart .cart-total");
+      totalCart.textContent = Number(totalPrice).toLocaleString("vi-VN");
+    });
+  }
 }
 
 // Increase or decrease the quantity
@@ -251,6 +249,7 @@ function changeQuantity() {
       const idFood = btnMinus.closest(".cart-item");
       updateCartChanged(idFood);
     });
+
     btnPlus.addEventListener("click", () => {
       const currentQuantity = Number(inputQuantity.value);
       if (currentQuantity < 10) {
@@ -291,7 +290,7 @@ function updateCartChanged(item) {
           cart: updatedCart,
         })
         .then((response) => {
-          console.log("Cart updated successfully:", response.data);
+          getUsers().then(totalItemChecked);
         })
         .catch((error) => {
           console.error("Error updating cart:", error);
@@ -335,7 +334,6 @@ function removeCartItem() {
             })
             .then((response) => {
               render(response.data);
-              console.log("Cart updated successfully:", response.data);
             })
             .catch((error) => {
               console.error("Error updating cart:", error);

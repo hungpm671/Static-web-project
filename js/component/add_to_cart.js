@@ -27,9 +27,6 @@ function btnAdd(users = []) {
             .put(usersURL, {
               cart: updatedCart,
             })
-            .then((response) => {
-              console.log("Cart updated successfully:", response.data);
-            })
             .catch((error) => {
               console.error("Error updating cart:", error);
             });
@@ -60,6 +57,7 @@ function updateCartQuantity(users, idUser, foodId) {
     cartYourUser.push({
       food_id: foodId,
       quantity: 1,
+      isChecked: true,
     });
   }
 

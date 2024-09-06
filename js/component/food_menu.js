@@ -301,7 +301,6 @@ function userComment(foods, index) {
           })
           .then((response) => {
             updatedReview(response.data);
-            console.log("Cart updated successfully:", response.data);
           })
           .catch((error) => {
             console.error("There was an error updating the cart:", error);
