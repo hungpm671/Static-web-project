@@ -1,4 +1,5 @@
 import { getFoods, getUsers } from "../api.js";
+import { badgeNoticeCart } from "./badge_notice_cart.js";
 import { ToastMessage } from "./toast_message.js";
 
 function render(user) {
@@ -14,6 +15,7 @@ function render(user) {
         filteredFoods.push({
           ...findFood,
           quantity: usercart.quantity,
+          selected: usercart.category,
           isChecked: usercart.isChecked,
         });
       }
@@ -37,11 +39,14 @@ function render(user) {
         />
         <div class="cart-info d-flex flex-column ms-3 flex-grow-1">
           <span class="font-edu fw-bold">${food.name}</span>
-          <select name="select" id="select-size" class="border-0 w-25 mt-2">
-            <option selected>Size Selection</option>
-            ${food.category.map((category) => {
-              return `<option value="${category}">${category}</option>`;
-            })}      
+          <select name="select" class="select-size border-0 w-25 mt-2">
+            ${food.category
+              .map((category, index) => {
+                return `<option value="${index + 1}" ${
+                  food.selected === index + 1 ? "selected" : ""
+                }>${category}</option>`;
+              })
+              .join("")}      
           </select>
           <div
             class="cart-option mt-3 d-flex justify-content-between align-items-center"
@@ -77,6 +82,7 @@ function render(user) {
     changeQuantity();
     removeCartItem();
     ToastMessage();
+    changeCategory();
   });
 }
 
@@ -326,6 +332,50 @@ function removeCartItem() {
               continue;
             }
             updatedCart.push(userCart);
+          }
+
+          axios
+            .put(usersURL, {
+              cart: updatedCart,
+            })
+            .then((response) => {
+              badgeNoticeCart();
+              render(response.data);
+            })
+            .catch((error) => {
+              console.error("Error updating cart:", error);
+            });
+        });
+      }
+    });
+  });
+}
+
+// change categories
+function changeCategory() {
+  const selectElements = document.querySelectorAll(".select-size");
+  selectElements.forEach((select) => {
+    select.addEventListener("change", (e) => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        const userId = JSON.parse(storedUser).user_id;
+
+        getUsers().then((updatedUsers) => {
+          const idUser = updatedUsers.findIndex(
+            (user) => user.user_id == userId
+          );
+
+          const usersURL = `https://66cf273a901aab2484211ea3.mockapi.io/users/users/${
+            Number(idUser) + 1
+          }`;
+
+          const updatedCart = [];
+          const idFood = select.closest(".cart-item").getAttribute("data-item");
+          for (let usercart of updatedUsers[idUser].cart) {
+            if (usercart.food_id == idFood) {
+              usercart.category = Number(e.target.value);
+            }
+            updatedCart.push(usercart);
           }
 
           axios

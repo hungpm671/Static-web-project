@@ -1,5 +1,5 @@
 import { bannerCarousel } from "./component/carousel.js";
-import { foodList, foodMenu } from "./component/food_menu.js";
+import { foodList, foodMenu } from "./component/food_infomation.js";
 import { reviewStore } from "./component/review.js";
 import { scrollTop } from "./component/scroll_top.js";
 import { Sign_In } from "./component/sign_in.js";

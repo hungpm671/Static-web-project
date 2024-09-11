@@ -200,9 +200,6 @@ input[type="password"]::-ms-clear {
   padding-left: 15px;
 }
 
-.cart-info #select-size {
-}
-
 #cart .quantity {
   border: 1px solid var(--second-color);
 }
@@ -230,6 +227,19 @@ input[type="password"]::-ms-clear {
   height: 200px;
 }
 
-#cart #select-size {
+#cart .select-size {
   font-size: 12px !important;
+}
+
+/* star */
+.btn-tap-to-rate .rating i {
+  cursor: pointer;
+}
+
+.btn-tap-to-rate .rating i:hover {
+  color: var(--primary-color);
+}
+
+.rating i.active {
+  color: var(--primary-color);
 }

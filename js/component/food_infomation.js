@@ -1,5 +1,5 @@
 import { getFoods, getUsers } from "../api.js";
-import { addToCart } from "./add_to_cart.js";
+import { addToCart, btnAddToCartWhenSeenInfo } from "./add_to_cart.js";
 import { ToastMessage } from "./toast_message.js";
 
 // classify food
@@ -194,22 +194,25 @@ function getFoodInfo(foods = [], id, index) {
                 <input
                   type="number"
                   value="1"
-                  class="count text-end border-radius-8"
+                  class="dish-input-counter text-end border-radius-8"
+                  min="1"
+                  max="100"
                 />
                 <button class="btn-increase bg-transparent">+</button>
 
-                <select name="select" id="select-size" class="p-2 border-0">
-                  <option selected>Size Selection</option>
-                  ${foodItem.category.map((cate, index) => {
-                    return `<option value="${index}">${cate}</option>`;
-                  })}
+                <select name="select" class="select-size p-2 border-0">
+                  ${foodItem.category
+                    .map((cate, index) => {
+                      return `<option value="${index + 1}">${cate}</option>`;
+                    })
+                    .join("")}
                 </select>
               </div>
             
               <!-- add to cart -->
               <div class="d-flex align-items-center gap-2">
                 <button
-                  class="btn-add-to-cart border-0 bg-second-color text-white border-radius-8 d-flex align-items-center gap-1"
+                  class="btn-add-to-cart btn-toast_msg border-0 bg-second-color text-white border-radius-8 d-flex align-items-center gap-1"
                 >
                   <i class="ph ph-shopping-cart"></i> Add to Cart
                 </button>
@@ -232,12 +235,12 @@ function getFoodInfo(foods = [], id, index) {
 
             <div class="btn-tap-to-rate d-flex align-items-center gap-2 mb-2">
               <span>Tap to rate:</span>
-              <div class="rating color-primary-color">
+              <div class="rating star d-flex gap-3">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
+                <i class="bi bi-star-fill"></i>
               </div>
             </div>
 
@@ -260,8 +263,12 @@ function getFoodInfo(foods = [], id, index) {
         <div class="about-reviewer"></div>`;
 
   dishInfomation.innerHTML = html;
+  ToastMessage();
+  ratingReviewClick();
   updatedReview(foodItem);
-  userComment(foods, index);
+  userComment(index);
+  changeQuantity();
+  btnAddToCartWhenSeenInfo(id);
 }
 
 // reviewer feedback
@@ -270,7 +277,7 @@ function renderFoodInfo(dataId, foodIndex) {
 }
 
 // comments
-function userComment(foods, index) {
+function userComment(index) {
   const foodURL = `https://66be374d74dfc195586ee7a3.mockapi.io/foods/product-list/${
     Number(index) + 1
   }`;
@@ -281,23 +288,41 @@ function userComment(foods, index) {
   sendReview.addEventListener("click", () => {
     const review = document.getElementById("textarea-review").value;
 
+    const rateStarLength = document.querySelectorAll(
+      ".btn-tap-to-rate .rating i.active"
+    );
+
     const date = new Date();
 
     if (storedUser) {
-      const jsonUser = JSON.parse(storedUser);
-      if (jsonUser.isLogin) {
+      const userId = JSON.parse(storedUser).user_id;
+
+      getFoods().then((foods) => {
+        const ratingFood = [...foods[index].rating];
+        const findIndex = ratingFood.findIndex(
+          (food) => food.user_id === userId
+        );
+
+        if (findIndex === -1) {
+          ratingFood.push({
+            user_id: userId,
+            content: review,
+            date: `${date.getFullYear()}-${
+              date.getMonth() + 1
+            }-${date.getDate()}`,
+            rate: rateStarLength.length,
+          });
+        } else {
+          ratingFood[findIndex].content = review;
+          ratingFood[findIndex].date = `${date.getFullYear()}-${
+            date.getMonth() + 1
+          }-${date.getDate()}`;
+          ratingFood[findIndex].rate = rateStarLength.length;
+        }
+
         axios
           .put(foodURL, {
-            rating: [
-              ...foods[index].rating,
-              {
-                user_id: jsonUser.user_id,
-                content: review,
-                date: `${date.getFullYear()}-${
-                  date.getMonth() + 1
-                }-${date.getDate()}`,
-              },
-            ],
+            rating: ratingFood,
           })
           .then((response) => {
             updatedReview(response.data);
@@ -305,40 +330,104 @@ function userComment(foods, index) {
           .catch((error) => {
             console.error("There was an error updating the cart:", error);
           });
-      }
+      });
     }
   });
 }
 
 // reload comments
-function updatedReview(foods) {
+async function updatedReview(foods) {
   const dishReview = document.querySelector(".about-reviewer");
   const reversedDishReview = foods.rating.reverse();
-  const html = reversedDishReview
-    .map((rate) => {
-      return `
-    <div class="reviewer-dish d-flex py-3 gap-3">
-            <div class="reviewer-avatar d-flex fs-1 mt-2">
-              <i class="ph ph-user-circle"></i>
-            </div>
-            <div class="reviewer-content flex-grow-1 p-2 border-radius-8">
-              <div class="d-flex align-items-center justify-content-between">
-                <div>
-                  <span class="reviewer-name fw-bold">${rate.user_id}</span>
-                  <div class="reviewer-rating color-primary-color">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                  </div>
-                </div>
-                <span class="reviewer-date">${rate.date}</span>
+
+  const htmlPromises = reversedDishReview.map(async (rate) => {
+    const username = await showName(rate.user_id);
+    return `
+      <div class="reviewer-dish d-flex py-3 gap-3">
+        <div class="reviewer-avatar d-flex fs-1 mt-2">
+          <i class="ph ph-user-circle"></i>
+        </div>
+        <div class="reviewer-content flex-grow-1 p-2 border-radius-8">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <span class="reviewer-name fw-bold">${username}</span>
+              <div class="reviewer-rating rating">
+                ${showRatingStar(rate.rate)}
               </div>
-              <p class="mt-2">${rate.content}</p>
             </div>
-          </div>`;
-    })
-    .join("");
+            <span class="reviewer-date">${rate.date}</span>
+          </div>
+          <p class="mt-2">${rate.content}</p>
+        </div>
+      </div>`;
+  });
+
+  const html = (await Promise.all(htmlPromises)).join("");
+
   dishReview.innerHTML = html;
+
+  const reviewLength = document.querySelector(".dish-review h3");
+  reviewLength.textContent = `Reviews (${foods.rating.length})`;
+}
+
+// button rate star
+function ratingReviewClick() {
+  const stars = document.querySelectorAll(".rating i");
+
+  stars.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      stars.forEach((star, indexStar) => {
+        index >= indexStar
+          ? star.classList.add("active")
+          : star.classList.remove("active");
+      });
+    });
+  });
+}
+
+// show rating
+function showRatingStar(selectedStar) {
+  let starsHTML = "";
+  for (let i = 0; i < 5; i++) {
+    if (i < selectedStar) {
+      starsHTML += `<i class="bi bi-star-fill active"></i>`;
+    } else {
+      starsHTML += `<i class="bi bi-star-fill"></i>`;
+    }
+  }
+  return starsHTML;
+}
+
+// show user name
+async function showName(id) {
+  try {
+    const users = await getUsers();
+    const user = users.find((user) => user.user_id === id);
+    return user ? user.name : "User not found";
+  } catch (error) {
+    console.error("Error fetching user name:", error);
+    return "User not found";
+  }
+}
+
+////////////////////////////// Feature //////////////////////////
+function changeQuantity() {
+  const btnMinus = document.querySelector(".dish-input-quantity .btn-decrease");
+  const btnPlus = document.querySelector(".dish-input-quantity .btn-increase");
+  const inputQuantity = document.querySelector(
+    ".dish-input-quantity input[type='number']"
+  );
+  btnMinus.addEventListener("click", () => {
+    const currentQuantity = Number(inputQuantity.value);
+    if (currentQuantity > 1) {
+      inputQuantity.value = currentQuantity - 1;
+    }
+  });
+
+  btnPlus.addEventListener("click", () => {
+    const currentQuantity = Number(inputQuantity.value);
+    if (currentQuantity < 100) {
+      inputQuantity.value = currentQuantity + 1;
+    }
+  });
 }

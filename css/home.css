@@ -31,6 +31,10 @@
   color: var(--primary-color) !important;
 }
 
+#header .badge {
+  font-size: 10px !important;
+}
+
 /* carousel */
 .embla-carousel .embla {
   overflow: hidden;
@@ -98,9 +102,17 @@
 .food-menu .embla-menu-item {
   cursor: pointer;
   user-select: none;
+  transition: all 300ms linear, padding 300ms linear;
 }
 
 .food-menu .embla-menu-item.active {
+  background: var(--second-color);
+  color: #ffffff;
+  padding: 8px 15px;
+  border-radius: 45px;
+}
+
+.food-menu .embla-menu-item:hover {
   background: var(--second-color);
   color: #ffffff;
   padding: 8px 15px;
@@ -153,6 +165,11 @@
   width: 40px;
   height: 40px;
   border-radius: 9999px;
+  transition: all 0.3s linear, background 0.3s linear;
+}
+
+.food-menu .btn-cart:hover {
+  background: rgb(215, 162, 2) !important;
 }
 
 .food-menu .all-food {
