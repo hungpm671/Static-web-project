@@ -8,6 +8,12 @@ import { Sign_Up } from "./component/sign_up.js";
 import { ToastMessage } from "./component/toast_message.js";
 
 function App() {
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      document.getElementById("loader").classList.add("d-none");
+    }, 3000);
+  });
+
   bannerCarousel();
   foodMenu();
   foodList();
@@ -18,4 +24,5 @@ function App() {
   Sign_Up();
   ToastMessage();
 }
+
 App();

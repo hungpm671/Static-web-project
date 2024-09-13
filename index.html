@@ -121,7 +121,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link d-flex align-items-center text-white"
+                  class="nav-link btn-show-search_form d-flex align-items-center text-white"
                   href="#"
                   ><i class="ph ph-magnifying-glass fs-4"></i>
                   <span class="ms-1">Search</span></a
@@ -208,7 +208,7 @@
         <div class="header d-flex flex-column align-items-center">
           <h2 class="font-edu fw-bold">Our Menu</h2>
           <div class="main-menu w-75">
-            <div class="embla embla_menu w-100">
+            <div class="embla embla_menu w-100 overflow-auto">
               <div class="embla__container d-flex align-items-center gap-2">
                 <div class="embla__slide embla-menu-item text-center active">
                   All
@@ -888,6 +888,69 @@
       </div>
     </div>
 
+    <!-- loader -->
+    <div
+      id="loader"
+      class="bg-white position-fixed top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center z-3"
+    >
+      <img src="image/loader.gif" alt="loader" />
+    </div>
+
+    <!-- search -->
+    <section
+      id="search-bar"
+      class="position-fixed start-0 end-0 flex-column align-items-center justify-content-center z-2"
+    >
+      <div
+        class="search-form position-relative d-flex align-items-center justify-content-center"
+      >
+        <input
+          type="text"
+          id="search-input"
+          class="fs-4 bg-transparent border-0 w-100"
+          placeholder="Search..."
+        />
+        <button
+          id="search-button"
+          class="position-absolute end-0 border-0 bg-transparent color-primary-color fs-4"
+        >
+          <i class="ph ph-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <!-- close -->
+      <button
+        id="close-search-bar"
+        class="position-absolute top-0 end-0 border-0 bg-transparent color-primary-color fs-4 d-flex p-2"
+      >
+        <i class="ph ph-x"></i>
+      </button>
+
+      <!-- search result -->
+      <div
+        id="search-result"
+        class="container bg-white mt-4 w-100 overflow-y-auto"
+      >
+        <nav
+          style="
+            --bs-breadcrumb-divider: url(
+              &#34;data:image/svg + xml,
+              %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+            );
+          "
+          aria-label="breadcrumb"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Search Result</li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+        </nav>
+
+        <div class="search-result-list">
+          <div class="row g-2"></div>
+        </div>
+      </div>
+    </section>
     <!-- ---------------------------------------script----------------------------------------------- -->
     <!-- icon -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>

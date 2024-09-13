@@ -121,7 +121,7 @@ input[type="password"]::-ms-clear {
 /* dish infomation */
 #dish-infomation {
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 1000;
   display: none;
 }
 
@@ -242,4 +242,67 @@ input[type="password"]::-ms-clear {
 
 .rating i.active {
   color: var(--primary-color);
+}
+
+/* search */
+#search-bar {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 90px 15px;
+  top: 0;
+  animation: slide_search 1s linear;
+  display: none;
+}
+
+#search-bar .search-form {
+  border-bottom: 2px solid var(--primary-color) !important;
+  width: 300px;
+}
+
+#search-bar #search-input {
+  all: unset;
+  padding-bottom: 8px;
+  color: #fff;
+}
+
+#search-bar #search-input::placeholder {
+  color: var(--primary-color);
+}
+
+@keyframes slide_search {
+  from {
+    top: -200px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+/* search result */
+#search-result {
+  padding-block: 15px 30px;
+  max-height: 500px;
+  display: none;
+}
+
+#search-result .search-result-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+#search-result .search-result-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Số dòng hiển thị trước khi thêm dấu ba chấm */
+  overflow: hidden;
+}
+
+#search-result .btn-show-more_info {
+  display: none;
+}
+
+#search-result .search-result-item:hover .btn-show-more_info {
+  background: linear-gradient(#0001, #000);
+  display: flex;
 }

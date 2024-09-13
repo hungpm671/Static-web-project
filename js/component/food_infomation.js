@@ -5,7 +5,7 @@ import { ToastMessage } from "./toast_message.js";
 // classify food
 export function foodMenu() {
   const emblaNode = document.querySelector(".embla_menu");
-  const options = { loop: false };
+  const options = { loop: false, draggable: false };
   const emblaApi = EmblaCarousel(emblaNode, options);
 }
 
@@ -23,11 +23,14 @@ function renderFood(foodArray = [], category) {
 
   const html = filteredFoods
     .map((food, index) => {
+      const foodIndex = foodArray.findIndex(
+        (item) => item.food_id === food.food_id
+      );
       return `
       <div class="col-12 col-sm-6 col-md-4 all-food">
               <div class="food-item overflow-hidden" data-food_id="${
                 food.food_id
-              }" data-id="${index}">
+              }" data-id="${foodIndex}">
                 <div class="food-thumb d-flex">
                   <img
                     class="food-img object-fit-cover"
@@ -58,6 +61,7 @@ function renderFood(foodArray = [], category) {
     .join("");
 
   $(".food-list .row").html(html);
+
   showAll();
   addToCart();
   toggleFoodInfomation(foodArray);
@@ -143,7 +147,7 @@ function toggleFoodInfomation(foodArray) {
   });
 }
 
-function getFoodInfo(foods = [], id, index) {
+export function getFoodInfo(foods = [], id, index) {
   const dishInfomation = document.querySelector(".dish-info");
   const foodItem = foods.find((food) => food.food_id === id);
 
@@ -272,12 +276,12 @@ function getFoodInfo(foods = [], id, index) {
 }
 
 // reviewer feedback
-function renderFoodInfo(dataId, foodIndex) {
+export function renderFoodInfo(dataId, foodIndex) {
   getFoods().then((foods) => getFoodInfo(foods, dataId, foodIndex));
 }
 
 // comments
-function userComment(index) {
+export function userComment(index) {
   const foodURL = `https://66be374d74dfc195586ee7a3.mockapi.io/foods/product-list/${
     Number(index) + 1
   }`;
@@ -336,7 +340,7 @@ function userComment(index) {
 }
 
 // reload comments
-async function updatedReview(foods) {
+export async function updatedReview(foods) {
   const dishReview = document.querySelector(".about-reviewer");
   const reversedDishReview = foods.rating.reverse();
 
@@ -371,7 +375,7 @@ async function updatedReview(foods) {
 }
 
 // button rate star
-function ratingReviewClick() {
+export function ratingReviewClick() {
   const stars = document.querySelectorAll(".rating i");
 
   stars.forEach((item, index) => {

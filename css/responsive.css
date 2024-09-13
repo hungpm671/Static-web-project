@@ -2,9 +2,16 @@
   .form-sign_in {
     width: 400px !important;
   }
+
+  #search-bar .search-form {
+    width: 350px !important;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  #search-bar .search-form {
+    width: 450px !important;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -26,6 +33,10 @@
   .reviewer img {
     width: 18% !important;
   }
+
+  #search-bar .search-form {
+    width: 500px !important;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -34,5 +45,9 @@
   }
   .reviewer img {
     width: 15% !important;
+  }
+
+  #search-bar .search-form {
+    width: 550px !important;
   }
 }

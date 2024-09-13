@@ -122,6 +122,7 @@ function addToCartWhenSeenInfo(dataId) {
         })
         .then((response) => {
           ToastMessage();
+          badgeNoticeCart();
         })
         .catch((error) => {
           console.error("Error updating cart:", error);

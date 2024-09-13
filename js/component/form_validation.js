@@ -1,4 +1,5 @@
 import { Cart } from "./cart.js";
+import { searchFeature } from "./search.js";
 import { clearLocalStorage, Set_Up_UserOption } from "./setup_user_option.js";
 
 export function btnFormValidation() {
@@ -12,12 +13,16 @@ export function btnFormValidation() {
   const btnLogOut = document.querySelector(".btn-logout");
   const btnCart = document.querySelector(".btn-cart-user");
   const showCart = document.querySelector("#cart");
+  const btnSearch = document.querySelector(".btn-show-search_form");
+  const searchBar = document.querySelector("#search-bar");
+  const btnCloseSearch = document.querySelector("#close-search-bar");
 
   if (btnLogOut) {
     btnLogOut.addEventListener("click", function () {
       clearLocalStorage();
       Set_Up_UserOption();
       btnFormValidation();
+      window.location.href = "index.html";
     });
   }
 
@@ -72,4 +77,15 @@ export function btnFormValidation() {
       showCart.style.display = "block";
     });
   }
+
+  // search
+  btnSearch.addEventListener("click", function (e) {
+    e.preventDefault();
+    searchBar.style.display = "flex";
+    searchFeature();
+  });
+
+  btnCloseSearch.addEventListener("click", function () {
+    searchBar.style.display = "none";
+  });
 }
