@@ -65,7 +65,7 @@ function renderFood(foodArray = [], category) {
   showAll();
   addToCart();
   toggleFoodInfomation(foodArray);
-  ToastMessage();
+  ToastMessage("Added to cart successfully", "Cart updated successfully");
 }
 
 // Toggle see more/see less
@@ -269,7 +269,7 @@ export function getFoodInfo(foods = [], id, index) {
 
   dishInfomation.innerHTML = html;
 
-  ToastMessage();
+  ToastMessage("Added to cart successfully", "Cart updated successfully");
   ratingReviewClick();
   updatedReview(foodItem);
   userComment(index);

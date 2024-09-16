@@ -81,7 +81,7 @@ function render(user) {
     checkedCart();
     changeQuantity();
     removeCartItem();
-    ToastMessage();
+    ToastMessage("Added to cart successfully", "Cart updated successfully");
     changeCategory();
   });
 }
@@ -111,6 +111,7 @@ function closeCart() {
 
   cartDiv.addEventListener("click", function () {
     cartDiv.style.display = "none";
+    billInfo.style.display = "none";
   });
 
   cartInfomation.addEventListener("click", function (e) {

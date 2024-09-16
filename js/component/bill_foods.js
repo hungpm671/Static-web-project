@@ -1,19 +1,25 @@
-export function showOrderYourCart() {
-  const btnOrder = document.querySelector("#cart .btn-order");
-  const billInfo = document.querySelector("#cart .bill-infomation");
-  const closeBill = document.querySelector("#cart .btn-close-bill");
+import { getUsers } from "../api.js";
+import { badgeNoticeCart } from "./badge_notice_cart.js";
+import { Cart } from "./cart.js";
+import { ToastMessage } from "./toast_message.js";
 
+const customerName = document.querySelector("#cart .input-name");
+const customerPhone = document.querySelector("#cart .input-phone");
+const customerAddress = document.querySelector("#cart .input-address");
+const customerHouse = document.querySelector("#cart .input-house_number");
+
+const btnOrder = document.querySelector("#cart .btn-order");
+const billInfo = document.querySelector("#cart .bill-infomation");
+const closeBill = document.querySelector("#cart .btn-close-bill");
+
+const btnOrderComplete = document.querySelector("#cart .btn-order-complete");
+
+const cartDiv = document.querySelector("#cart");
+
+// show order form
+export function showOrderYourCart() {
   btnOrder.addEventListener("click", function () {
-    const selectedCheckbox = document.querySelectorAll(
-      'input[name="checkbox"]:checked'
-    );
-    if (selectedCheckbox.length > 0) {
-      billInfo.style.display = "block";
-      getOrderInformation();
-      getFoodIsSelected();
-    } else {
-      alert("Please select food to order");
-    }
+    checkInputValidity();
   });
 
   // close order
@@ -29,11 +35,6 @@ function getOrderInformation() {
 
 // get information about the customer
 function getCustomerInformation() {
-  const customerName = document.querySelector("#cart .input-name");
-  const customerPhone = document.querySelector("#cart .input-phone");
-  const customerAddress = document.querySelector("#cart .input-address");
-  const customerHouse = document.querySelector("#cart .input-house_number");
-
   const customerInfo = document.querySelector(
     ".bill-infomation .customer-infomation"
   );
@@ -123,4 +124,124 @@ function getFoodIsSelected() {
   const selectedRadio = document.querySelector('input[name="group1"]:checked');
   document.querySelector(".order-paymend").textContent =
     selectedRadio.nextElementSibling.textContent;
+
+  sendOrderInfoToMail(foods);
+}
+
+// check input validity before sending
+function checkInputValidity() {
+  const isValidName = /^[\p{L}\s]+$/u.test(customerName.value);
+  const isValidPhone = /^\d{10}$/.test(customerPhone.value);
+  const isValidAddress = /^[\p{L}\p{N}\s,.-]+$/u.test(customerAddress.value);
+  const isValidHouse = /^[\p{L}\p{N}\s-]+$/u.test(customerHouse.value);
+
+  if (isValidName && isValidPhone && isValidAddress && isValidHouse) {
+    const selectedCheckbox = document.querySelectorAll(
+      'input[name="checkbox"]:checked'
+    );
+    if (selectedCheckbox.length > 0) {
+      billInfo.style.display = "block";
+      getOrderInformation();
+      getFoodIsSelected();
+    } else {
+      alert("Please select food to order");
+    }
+  } else {
+    alert("Please fill in the correct information");
+    return false;
+  }
+}
+
+// send to the email address
+function sendOrderInfoToMail(foods) {
+  btnOrderComplete.addEventListener("click", () => {
+    updateBillUser(foods);
+    // Email.send({
+    //   Host: "smtp.elasticemail.com",
+    //   Username: "hungpham671@gmail.com",
+    //   Password: "A7702BB757B843ABC56C410C29A67D37E205",
+    //   To: "hungpm671@gmail.com",
+    //   From: "hungpm671@gmail.com",
+    //   Subject: "✅ Đặt món thành công tại NoBuynostay!",
+    //   Body: `
+    //     <h2>Cảm ơn bạn đã đặt hàng!</h2>
+    //     <p>Chúng tôi rất vui được thông báo rằng đơn hàng của bạn đã được xác nhận và đang được giao.</p>
+    //     <p><strong>📞 Vui lòng để ý điện thoại của bạn</strong>, chúng tôi có thể liên hệ nếu cần thêm thông tin hoặc cập nhật về đơn hàng.</p>
+    //     <p>Chúng tôi sẽ thông báo khi đơn hàng sẵn sàng để nhận.</p>
+    //     <p>Trân trọng,<br>NoBuynostay</p>`,
+    // }).then((message) => alert(message));
+  });
+}
+
+function updateBillUser(foods) {
+  getUsers().then((users) => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userIndex = users.findIndex(
+        (user) => user.user_id === JSON.parse(storedUser).user_id
+      );
+
+      if (userIndex) {
+        const usersURL = `https://66cf273a901aab2484211ea3.mockapi.io/users/users/${
+          Number(userIndex) + 1
+        }`;
+
+        const billUser = [
+          ...users[userIndex].bill,
+          {
+            order_id: Date.now(),
+            foods: foods.map((food) => {
+              return {
+                food_id: food.food_id,
+                name: food.name,
+                size: food.size,
+                quantity: food.quantity,
+                price: food.price,
+                subtotal: food.price * food.quantity,
+              };
+            }),
+            total_price:
+              foods.reduce((acc, curr) => acc + curr.price * curr.quantity, 0) +
+              15000,
+            phone: document.querySelector(".customer-phone").textContent,
+            address: document.querySelector(".customer-address").textContent,
+            payment_method:
+              document.querySelector('input[name="group1"]:checked').value ===
+              "option1"
+                ? "credit_card"
+                : "cod",
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            status: "pending",
+          },
+        ];
+
+        const cartUser = users[userIndex].cart.filter(
+          (item) => item.isChecked === false
+        );
+
+        axios
+          .put(usersURL, {
+            cart: cartUser,
+            bill: billUser,
+          })
+          .then((response) => {
+            badgeNoticeCart();
+            Cart();
+            showOrderYourCart();
+            ToastMessage(
+              "Order placed successfully",
+              "Thank you for your order 😍"
+            );
+            cartDiv.style.display = "none";
+            billInfo.style.display = "none";
+          })
+          .catch((error) => {
+            console.error("Error updating cart:", error);
+          });
+      } else {
+        alert("User not found");
+      }
+    }
+  });
 }

@@ -826,21 +826,25 @@
                       type="text"
                       class="input-form_info input-name"
                       placeholder="Họ tên"
+                      value="Robin Son"
                     />
                     <input
                       type="text"
                       class="input-form_info input-phone"
                       placeholder="Số điện thoại"
+                      value="0987654321"
                     />
                     <input
                       type="text"
                       class="input-form_info input-address"
                       placeholder="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã"
+                      value="phố Lê Thanh Nghị - phường Đồng Tâm - quận Hai Bà Trưng - Hà Nội"
                     />
                     <input
                       type="text"
                       class="input-form_info input-house_number"
                       placeholder="Tên đường, Tòa nhà, Số nhà"
+                      value="Số 15 ngõ 204"
                     />
                     <div>
                       <input
@@ -917,7 +921,7 @@
             </div>
           </div>
           <button
-            class="btn-order-complete bg-primary-color text-white border-0 border-radius-8 w-100 mt-3 p-1"
+            class="btn-order-complete btn-toast_msg bg-primary-color text-white border-0 border-radius-8 w-100 mt-3 p-1"
           >
             Thanh toán
           </button>
@@ -956,12 +960,12 @@
     </div>
 
     <!-- loader -->
-    <div
+    <!-- <div
       id="loader"
       class="bg-white position-fixed top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center z-3"
     >
       <img src="image/loader.gif" alt="loader" />
-    </div>
+    </div> -->
 
     <!-- search -->
     <section
@@ -1051,6 +1055,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <!-- smtpJs -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <script type="module" src="js/main.js"></script>
   </body>

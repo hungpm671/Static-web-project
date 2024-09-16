@@ -121,7 +121,10 @@ function addToCartWhenSeenInfo(dataId) {
           cart: updatedCart,
         })
         .then((response) => {
-          ToastMessage();
+          ToastMessage(
+            "Added to cart successfully",
+            "Cart updated successfully"
+          );
           badgeNoticeCart();
         })
         .catch((error) => {
