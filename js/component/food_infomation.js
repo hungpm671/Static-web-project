@@ -140,6 +140,7 @@ function toggleFoodInfomation(foodArray) {
 
   dishInfomation.addEventListener("click", (e) => {
     dishInfomation.style.display = "none";
+    dishInfo.innerHTML = "";
   });
 
   dishInfo.addEventListener("click", function (e) {
@@ -267,6 +268,7 @@ export function getFoodInfo(foods = [], id, index) {
         <div class="about-reviewer"></div>`;
 
   dishInfomation.innerHTML = html;
+
   ToastMessage();
   ratingReviewClick();
   updatedReview(foodItem);
@@ -281,7 +283,7 @@ export function renderFoodInfo(dataId, foodIndex) {
 }
 
 // comments
-export function userComment(index) {
+function userComment(index) {
   const foodURL = `https://66be374d74dfc195586ee7a3.mockapi.io/foods/product-list/${
     Number(index) + 1
   }`;
@@ -340,7 +342,7 @@ export function userComment(index) {
 }
 
 // reload comments
-export async function updatedReview(foods) {
+async function updatedReview(foods) {
   const dishReview = document.querySelector(".about-reviewer");
   const reversedDishReview = foods.rating.reverse();
 
@@ -375,7 +377,7 @@ export async function updatedReview(foods) {
 }
 
 // button rate star
-export function ratingReviewClick() {
+function ratingReviewClick() {
   const stars = document.querySelectorAll(".rating i");
 
   stars.forEach((item, index) => {

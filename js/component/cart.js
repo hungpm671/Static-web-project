@@ -107,12 +107,17 @@ export function Cart() {
 function closeCart() {
   const cartDiv = document.querySelector("#cart");
   const cartInfomation = document.querySelector(".cart-infomation");
+  const billInfo = document.querySelector("#cart .bill-infomation");
 
   cartDiv.addEventListener("click", function () {
     cartDiv.style.display = "none";
   });
 
   cartInfomation.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+  billInfo.addEventListener("click", function (e) {
     e.stopPropagation();
   });
 }

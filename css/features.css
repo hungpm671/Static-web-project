@@ -181,6 +181,18 @@ input[type="password"]::-ms-clear {
   animation: slide 0.5s linear;
 }
 
+.loading-element i {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* cart */
 #cart {
   background-color: rgba(0, 0, 0, 0.5);
@@ -214,7 +226,7 @@ input[type="password"]::-ms-clear {
   padding-inline: 10px;
 }
 
-#cart .input-address {
+#cart .input-form_info {
   padding: 5px 10px;
   border-radius: 8px;
 }
@@ -231,6 +243,40 @@ input[type="password"]::-ms-clear {
   font-size: 12px !important;
 }
 
+/* bill */
+.bill-infomation {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 600px;
+  display: none;
+  width: 100%;
+  animation: slideToRight 1.2s linear;
+}
+
+@keyframes slideToRight {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+.bill-cart {
+  border: 1px solid #ccc;
+}
+
+.bill-cart .order-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.bill-cart .order-item h5 {
+  font-size: 14px;
+}
+
 /* star */
 .btn-tap-to-rate .rating i {
   cursor: pointer;
@@ -238,6 +284,10 @@ input[type="password"]::-ms-clear {
 
 .btn-tap-to-rate .rating i:hover {
   color: var(--primary-color);
+}
+
+.rating i {
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .rating i.active {

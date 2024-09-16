@@ -1,3 +1,4 @@
+import { showOrderYourCart } from "./bill_foods.js";
 import { Cart } from "./cart.js";
 import { searchFeature } from "./search.js";
 import { clearLocalStorage, Set_Up_UserOption } from "./setup_user_option.js";
@@ -74,6 +75,7 @@ export function btnFormValidation() {
   if (btnCart) {
     btnCart.addEventListener("click", function () {
       Cart();
+      showOrderYourCart();
       showCart.style.display = "block";
     });
   }

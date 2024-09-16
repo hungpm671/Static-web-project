@@ -190,7 +190,7 @@
   background-color: var(--second-color);
 }
 .about-section {
-  background-image: url("https://ailovei.com/wp-content/uploads/2015/02/%E3%83%94%E3%82%B6%E3%80%80%E7%94%BB%E5%83%8F58.jpg");
+  background-image: url("https://c.wallhere.com/photos/a3/c5/food_pizza_tomatoes_basil_Garlic-1399203.jpg!d");
   background-repeat: no-repeat;
   background-size: cover;
   background-clip: border-box;
@@ -199,6 +199,14 @@
 
 .about-section .about-thumb {
   padding: 90px 0;
+}
+
+.about-section .service-item {
+  padding: 5px;
+  border-radius: 8px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 30px rgba(227, 228, 237blue, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
 }
 
 /* review */

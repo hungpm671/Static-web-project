@@ -252,18 +252,38 @@
           <div
             class="about-thumb d-flex flex-column align-items-center text-white align-items-lg-start"
           >
-            <h2 class="font-edu fw-bold">We Are Feane</h2>
-            <p class="text-center text-lg-start">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores earum, nisi adipisci inventore ad in excepturi quas.
-              Quam dignissimos quisquam commodi rem distinctio magni, aut
-              voluptatibus, veniam quas quia inventore?
-            </p>
-            <button
-              class="btn-order d-flex align-items-center mt-3 bg-warning border-0 text-white"
+            <h3 class="font-edu text-center text-lg-start">About Us</h3>
+            <span class="font-edu fs-6 text-center text-lg-start mb-2"
+              >WHY CHOOSE US?</span
             >
-              Read More
-            </button>
+            <p class="text-center text-lg-start">
+              At our online fast food store, quality is always our top priority.
+              Every dish is made from fresh ingredients, ensuring absolute food
+              safety. We are committed to fast delivery, so you can enjoy hot
+              meals at home without long waits. In addition, our dedicated
+              customer service team is always ready to assist and fulfill all
+              your requests, providing a great shopping experience. With the
+              trust of thousands of customers, we are proud to be a reliable
+              choice for delicious meals.
+            </p>
+            <div class="service d-flex align-items-center gap-2">
+              <div class="service-item d-flex align-items-center">
+                <i class="ph ph-package fs-3 me-2 color-primary-color"></i>
+                <small> Fast Delivery </small>
+              </div>
+
+              <div class="service-item d-flex align-items-center">
+                <i
+                  class="ph ph-currency-circle-dollar fs-3 me-2 color-primary-color"
+                ></i>
+                <small>Easy Payments</small>
+              </div>
+
+              <div class="service-item d-flex align-items-center">
+                <i class="ph ph-headset fs-3 me-2 color-primary-color"></i>
+                <small>Prompt Resolution</small>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -804,28 +824,28 @@
                   <div class="accordion-body d-flex flex-column gap-3">
                     <input
                       type="text"
-                      class="input-address"
+                      class="input-form_info input-name"
                       placeholder="Họ tên"
                     />
                     <input
                       type="text"
-                      class="input-address"
+                      class="input-form_info input-phone"
                       placeholder="Số điện thoại"
                     />
                     <input
                       type="text"
-                      class="input-address"
+                      class="input-form_info input-address"
                       placeholder="Tỉnh/Thành phố, Quận/Huyện, Phường/Xã"
                     />
                     <input
                       type="text"
-                      class="input-address"
+                      class="input-form_info input-house_number"
                       placeholder="Tên đường, Tòa nhà, Số nhà"
                     />
                     <div>
                       <input
                         type="text"
-                        class="input-address"
+                        class="input-form_info input-voucher"
                         placeholder="Mã khuyến mãi"
                       />
                       <button
@@ -846,14 +866,19 @@
 
             <!-- Payment menthod -->
             <div class="pay-menthod mt-3">
-              <div class="d-flex align-items-center">
-                <input type="radio" />
-                <label for="epay" class="ms-2">Thẻ tín dụng/Ghi nợ</label>
-              </div>
-              <div class="d-flex align-items-center">
-                <input type="radio" />
-                <label for="epay" class="ms-2">Thanh toán khi nhận hàng</label>
-              </div>
+              <form>
+                <input type="radio" id="radio1" name="group1" value="option1" />
+                <small for="radio1">Thẻ tín dụng/Ghi nợ</small><br />
+
+                <input
+                  type="radio"
+                  id="radio2"
+                  name="group1"
+                  value="option2"
+                  checked
+                />
+                <small for="radio2">Thanh toán khi nhận hàng</small><br />
+              </form>
             </div>
             <button
               class="btn-order bg-primary-color text-white border-0 border-radius-8 w-100 mt-3"
@@ -862,6 +887,48 @@
             </button>
           </div>
         </div>
+      </div>
+
+      <!-- Bill -->
+      <div class="bill-infomation position-absolute bg-white overflow-auto">
+        <div class="bill-cart d-flex flex-column p-3 border-radius-8">
+          <h2 class="font-edu color-primary-color">Order Infomation</h2>
+          <span class="d-flex align-items-center gap-2 mt-2"
+            ><i class="ph ph-map-pin"></i> Địa chỉ nhận hàng</span
+          >
+          <div
+            class="customer-infomation d-flex flex-column text-body-tertiary mt-2"
+          ></div>
+          <hr />
+          <div class="order-information">
+            <div class="order-list d-flex flex-column gap-3"></div>
+
+            <hr />
+
+            <details class="order-summary text-body-secondary mb-2"></details>
+            <small
+              >Vui lòng thanh toán
+              <span class="payment-reminder text-danger"></span> khi nhận
+              hàng.</small
+            >
+            <div class="order-pay-menthod d-flex flex-column mt-2">
+              <span class="fw-medium">Phương thức thanh toán</span>
+              <small class="order-paymend">Thanh toán khi nhận hàng</small>
+            </div>
+          </div>
+          <button
+            class="btn-order-complete bg-primary-color text-white border-0 border-radius-8 w-100 mt-3 p-1"
+          >
+            Thanh toán
+          </button>
+        </div>
+
+        <!-- close -->
+        <button
+          class="btn-close-bill position-absolute top-0 end-0 bg-transparent color-primary-color border-0 border-radius-8 p-2 fs-4s"
+        >
+          <i class="ph ph-x-circle"></i>
+        </button>
       </div>
     </section>
 
@@ -951,6 +1018,7 @@
         </div>
       </div>
     </section>
+
     <!-- ---------------------------------------script----------------------------------------------- -->
     <!-- icon -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>

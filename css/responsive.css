@@ -6,6 +6,10 @@
   #search-bar .search-form {
     width: 350px !important;
   }
+
+  .bill-infomation {
+    width: 50% !important;
+  }
 }
 
 @media screen and (min-width: 768px) {

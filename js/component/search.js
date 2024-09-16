@@ -20,12 +20,13 @@ function searchResult(foods) {
 
     findText.textContent = searchText;
 
-    const foodList = filteredFoods
-      .map((item) => {
-        const foodIndex = foods.findIndex(
-          (food) => item.food_id === food.food_id
-        );
-        return `
+    if (filteredFoods.length > 0) {
+      const foodList = filteredFoods
+        .map((item) => {
+          const foodIndex = foods.findIndex(
+            (food) => item.food_id === food.food_id
+          );
+          return `
       <div class="col-12 border-radius-8 overflow-hidden">
         <div
           class="search-result-item position-relative d-flex align-items-center gap-3"
@@ -51,12 +52,15 @@ function searchResult(foods) {
           </button>
         </div>
       </div>`;
-      })
-      .join("");
+        })
+        .join("");
 
-    searchResultList.innerHTML = foodList;
+      searchResultList.innerHTML = foodList;
 
-    seeMoreInfo(foods);
+      seeMoreInfo(foods);
+    } else {
+      searchResultList.innerHTML = `<h4>No Result</h4>`;
+    }
   });
 }
 
