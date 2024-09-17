@@ -368,10 +368,13 @@ input[type="password"]::-ms-clear {
 #user-infomation {
   background: rgba(0, 0, 0, 0.8);
   display: none;
+  transition: all 500ms ease, background 500ms ease;
 }
 
 .user-info-container {
   padding: 50px 20px;
+  right: 0;
+  animation: slideToRight 500ms linear;
 }
 
 .user-info-container img {
@@ -381,4 +384,23 @@ input[type="password"]::-ms-clear {
 
 .user-info-name {
   width: 150px;
+}
+
+#user-infomation .bill-list {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.rotate-pizza {
+  display: inline-block;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

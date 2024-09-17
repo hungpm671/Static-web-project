@@ -181,7 +181,7 @@ function updateBillUser(foods) {
         (user) => user.user_id === JSON.parse(storedUser).user_id
       );
 
-      if (userIndex) {
+      if (users[userIndex]) {
         const usersURL = `https://66cf273a901aab2484211ea3.mockapi.io/users/users/${
           Number(userIndex) + 1
         }`;
