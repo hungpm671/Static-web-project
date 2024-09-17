@@ -1023,6 +1023,54 @@
       </div>
     </section>
 
+    <!-- user infomation -->
+    <section
+      id="user-infomation"
+      class="position-fixed top-0 bottom-0 start-0 end-0 z-1"
+    >
+      <div
+        class="user-info-container col-12 col-md-6 col-lg-4 bg-white h-100 position-absolute top-0 end-0 bottom-0"
+      >
+        <div
+          class="user-info-header d-flex flex-column align-items-center"
+        ></div>
+        <hr />
+        <div class="user-info-body d-flex justify-content-center text-center">
+          <div class="user-options d-flex align-items-center gap-3">
+            <button
+              class="btn-show-bill d-flex flex-column align-items-center border-0 bg-transparent"
+            >
+              <i class="bi bi-journal-text fs-4"></i> <small>Đơn mua</small>
+            </button>
+
+            <button
+              type="button"
+              class="btn-pending-confirmationm d-flex flex-column align-items-center border-0 bg-transparent position-relative"
+            >
+              <i class="bi bi-box-seam fs-4"></i> <small>Chờ xác nhận</small>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              >
+                99+
+              </span>
+            </button>
+
+            <button
+              type="button"
+              class="btn-waiting-delivery d-flex flex-column align-items-center border-0 bg-transparent position-relative"
+            >
+              <i class="bi bi-truck fs-4"></i> <small>Chờ giao hàng</small>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              >
+                99+
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------------------------------------script----------------------------------------------- -->
     <!-- icon -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>

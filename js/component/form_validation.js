@@ -17,6 +17,8 @@ export function btnFormValidation() {
   const btnSearch = document.querySelector(".btn-show-search_form");
   const searchBar = document.querySelector("#search-bar");
   const btnCloseSearch = document.querySelector("#close-search-bar");
+  const btnUserInfo = document.querySelector(".btn-user-info");
+  const userInfomation = document.querySelector("#user-infomation");
 
   if (btnLogOut) {
     btnLogOut.addEventListener("click", function () {
@@ -89,5 +91,16 @@ export function btnFormValidation() {
 
   btnCloseSearch.addEventListener("click", function () {
     searchBar.style.display = "none";
+  });
+
+  // show user info
+  if (btnUserInfo) {
+    btnUserInfo.addEventListener("click", function () {
+      userInfomation.style.display = "block";
+    });
+  }
+
+  userInfomation.addEventListener("click", (e) => {
+    userInfomation.style.display = "none";
   });
 }

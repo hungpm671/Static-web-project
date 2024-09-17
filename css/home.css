@@ -127,6 +127,16 @@
   background: var(--second-color);
   border-radius: 15px;
   cursor: pointer;
+  animation: zoomup 500ms ease-in-out;
+}
+
+@keyframes zoomup {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .food-menu .food-item:hover .food-img {

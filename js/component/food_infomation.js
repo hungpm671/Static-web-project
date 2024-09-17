@@ -152,6 +152,11 @@ export function getFoodInfo(foods = [], id, index) {
   const dishInfomation = document.querySelector(".dish-info");
   const foodItem = foods.find((food) => food.food_id === id);
 
+  // average star rating
+  const averageRating =
+    foodItem.rating.reduce((acc, curr) => acc + curr.rate, 0) /
+    foodItem.rating.length;
+
   const html = `
         <div class="dish-content">
           <div class="row">
@@ -166,12 +171,9 @@ export function getFoodInfo(foods = [], id, index) {
             <div class="col-12 col-lg-6">
               <div class="d-flex align-items-center gap-3 mb-3">
                 <h2 class="font-edu fw-bold m-0">${foodItem.name}</h2>
-                <div class="rating color-primary-color">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star"></i>
+                <div class="rating rating-average d-flex align-items-center">
+                  ${showRatingStarAverage(averageRating)} 
+                  <small class="ms-2 text-black">(${averageRating || 0})</small>
                 </div>
               </div>
 
@@ -348,10 +350,11 @@ async function updatedReview(foods) {
 
   const htmlPromises = reversedDishReview.map(async (rate) => {
     const username = await showName(rate.user_id);
+    const userAvatar = await showAvatar(rate.user_id);
     return `
       <div class="reviewer-dish d-flex py-3 gap-3">
         <div class="reviewer-avatar d-flex fs-1 mt-2">
-          <i class="ph ph-user-circle"></i>
+          <img src="${userAvatar}" alt="${username}">
         </div>
         <div class="reviewer-content flex-grow-1 p-2 border-radius-8">
           <div class="d-flex align-items-center justify-content-between">
@@ -374,6 +377,15 @@ async function updatedReview(foods) {
 
   const reviewLength = document.querySelector(".dish-review h3");
   reviewLength.textContent = `Reviews (${foods.rating.length})`;
+
+  const rateStarAverage = document.querySelector(".rating-average");
+
+  const averageRating =
+    foods.rating.reduce((sum, rate) => sum + rate.rate, 0) /
+    foods.rating.length;
+  rateStarAverage.innerHTML = `
+    ${showRatingStarAverage(averageRating)} 
+    <small class="ms-2 text-black">(${averageRating || 0})</small>`;
 }
 
 // button rate star
@@ -416,6 +428,19 @@ async function showName(id) {
   }
 }
 
+async function showAvatar(id) {
+  try {
+    const users = await getUsers();
+    const user = users.find((user) => user.user_id === id);
+    return user
+      ? user.avatar
+      : "https://tinhayvip.com/wp-content/uploads/2023/01/tho-bay-mau-01.jpg";
+  } catch (error) {
+    console.error("Error fetching user name:", error);
+    return "https://tinhayvip.com/wp-content/uploads/2023/01/tho-bay-mau-01.jpg";
+  }
+}
+
 ////////////////////////////// Feature //////////////////////////
 function changeQuantity() {
   const btnMinus = document.querySelector(".dish-input-quantity .btn-decrease");
@@ -436,4 +461,23 @@ function changeQuantity() {
       inputQuantity.value = currentQuantity + 1;
     }
   });
+}
+
+function showRatingStarAverage(selectedStar) {
+  let starsHTML = "";
+  const fullStar = '<i class="bi color-primary-color bi-star-fill"></i>';
+  const halfStar = '<i class="bi color-primary-color bi-star-half"></i>';
+  const emptyStar = '<i class="bi color-primary-color bi-star"></i>';
+
+  for (let i = 0; i < 5; i++) {
+    if (i < Math.floor(selectedStar)) {
+      starsHTML += fullStar;
+    } else if (i === Math.floor(selectedStar) && selectedStar % 1 !== 0) {
+      starsHTML += halfStar;
+    } else {
+      starsHTML += emptyStar;
+    }
+  }
+
+  return starsHTML;
 }

@@ -6,6 +6,7 @@ import { Sign_In } from "./component/sign_in.js";
 import { Set_Up_UserOption } from "./component/setup_user_option.js";
 import { Sign_Up } from "./component/sign_up.js";
 import { ToastMessage } from "./component/toast_message.js";
+import { userInfomation } from "./component/user-infomation.js";
 
 function App() {
   window.addEventListener("load", function () {
@@ -23,6 +24,7 @@ function App() {
   Sign_In();
   Sign_Up();
   ToastMessage();
+  userInfomation();
 }
 
 App();

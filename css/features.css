@@ -168,6 +168,13 @@ input[type="password"]::-ms-clear {
   font-size: 10px;
 }
 
+.reviewer-avatar img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .btn-send-review {
   padding: 3px 10px;
 }
@@ -355,4 +362,23 @@ input[type="password"]::-ms-clear {
 #search-result .search-result-item:hover .btn-show-more_info {
   background: linear-gradient(#0001, #000);
   display: flex;
+}
+
+/* user infomation */
+#user-infomation {
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.user-info-container {
+  padding: 50px 20px;
+}
+
+.user-info-container img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info-name {
+  width: 150px;
 }

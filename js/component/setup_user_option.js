@@ -35,7 +35,7 @@ export function Set_Up_UserOption() {
 
       dropdownMenu.innerHTML = `
             <li>
-            <a class="dropdown-item d-flex align-items-center" href="#"
+            <a class="dropdown-item btn-user-info d-flex align-items-center" href="#"
                 ><i class="ph ph-info pt-1 pe-1"></i>
                 <span class="ms-3">Thông tin cá nhân</span>
             </a>
