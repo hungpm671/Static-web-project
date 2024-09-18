@@ -404,3 +404,19 @@ input[type="password"]::-ms-clear {
     transform: rotate(360deg);
   }
 }
+
+/* confirm information */
+#confirm-information {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 15px;
+  display: none;
+}
+
+#confirm-information .cancellation-request {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  animation: zoomup 500ms ease;
+}
+
+#confirm-information #user-input {
+  padding: 10px 15px;
+}

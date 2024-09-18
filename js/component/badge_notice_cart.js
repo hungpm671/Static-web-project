@@ -17,7 +17,7 @@ export function badgeNoticeCart() {
 
       // Pending
       const filterPending = user.bill.filter((item) => {
-        return item.status === "pending";
+        return item.status === "pending" || item.status === "cancellation";
       });
       const badgeNoticePending = document.querySelector(
         ".user-options .badge-notice-pending"

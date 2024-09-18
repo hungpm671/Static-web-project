@@ -2,11 +2,13 @@ import { getUsers } from "../api.js";
 import { badgeNoticeCart } from "./badge_notice_cart.js";
 import { Cart } from "./cart.js";
 import { ToastMessage } from "./toast_message.js";
+import { userInfomation } from "./user-infomation.js";
 
 const customerName = document.querySelector("#cart .input-name");
 const customerPhone = document.querySelector("#cart .input-phone");
 const customerAddress = document.querySelector("#cart .input-address");
 const customerHouse = document.querySelector("#cart .input-house_number");
+const customerNotes = document.querySelector("#cart .textarea-note");
 
 const btnOrder = document.querySelector("#cart .btn-order");
 const billInfo = document.querySelector("#cart .bill-infomation");
@@ -205,6 +207,8 @@ function updateBillUser(foods) {
               15000,
             phone: document.querySelector(".customer-phone").textContent,
             address: document.querySelector(".customer-address").textContent,
+            notes: customerNotes.value,
+            reason: "",
             payment_method:
               document.querySelector('input[name="group1"]:checked').value ===
               "option1"
@@ -229,6 +233,7 @@ function updateBillUser(foods) {
             badgeNoticeCart();
             Cart();
             showOrderYourCart();
+            userInfomation();
             ToastMessage(
               "Order placed successfully",
               "Thank you for your order 😍"
