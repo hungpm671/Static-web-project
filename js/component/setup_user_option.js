@@ -60,7 +60,7 @@ export function Set_Up_UserOption() {
             <li>
             <a class="dropdown-item btn-store-review d-flex align-items-center" href="#"
                 ><i class="ph ph-sparkle pt-1 pe-1"></i>
-                <span class="ms-3">Đánh giá</span>
+                <span class="ms-3">Đánh giá cửa hàng</span>
             </a>
             </li>
             <li>
