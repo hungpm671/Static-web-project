@@ -1,5 +1,6 @@
 import { showOrderYourCart } from "./bill_foods.js";
 import { Cart } from "./cart.js";
+import { formReview } from "./review.js";
 import { searchFeature } from "./search.js";
 import { clearLocalStorage, Set_Up_UserOption } from "./setup_user_option.js";
 
@@ -19,6 +20,8 @@ export function btnFormValidation() {
   const btnCloseSearch = document.querySelector("#close-search-bar");
   const btnUserInfo = document.querySelector(".btn-user-info");
   const userInfomation = document.querySelector("#user-infomation");
+  const confirmInformation = document.querySelector("#confirm-information");
+  const btnReviewStore = document.querySelector(".btn-store-review");
 
   if (btnLogOut) {
     btnLogOut.addEventListener("click", function () {
@@ -103,4 +106,12 @@ export function btnFormValidation() {
   userInfomation.addEventListener("click", (e) => {
     userInfomation.style.display = "none";
   });
+
+  // show form review
+  if (btnReviewStore) {
+    btnReviewStore.addEventListener("click", function () {
+      confirmInformation.style.display = "flex";
+      formReview();
+    });
+  }
 }

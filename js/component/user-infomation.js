@@ -371,6 +371,7 @@ function Cancellation(user, orderId) {
             badgeNoticeCart();
             renderPending(response.data);
             if (confirmInformation) {
+              confirmInformation.innerHTML = "";
               confirmInformation.style.display = "none";
             }
           })

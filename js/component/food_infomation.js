@@ -257,7 +257,7 @@ export function getFoodInfo(foods = [], id, index) {
               placeholder="Please evaluate the dish in a polite and respectful manner."
               class="w-100 border-radius-8"
             ></textarea>
-            
+            <p class='alert-to-user text-success'><small>(Lần đánh giá sau sẽ được tính là một đánh giá đã được chỉnh sửa)</small></p>
             <button
               class="btn-send-review border-0 bg-primary-color text-white border-radius-8"
             >
@@ -293,12 +293,21 @@ function userComment(index) {
 
   const sendReview = document.querySelector(".btn-send-review");
 
+  const alertToUser = document.querySelector(".alert-to-user");
+
   sendReview.addEventListener("click", () => {
     const review = document.getElementById("textarea-review").value;
 
     const rateStarLength = document.querySelectorAll(
       ".btn-tap-to-rate .rating i.active"
     );
+
+    if (rateStarLength.length == 0) {
+      if (alertToUser) {
+        alertToUser.textContent = "Vui lòng chọn mức độ đánh giá";
+      }
+      return;
+    }
 
     const date = new Date();
 
@@ -334,6 +343,8 @@ function userComment(index) {
           })
           .then((response) => {
             updatedReview(response.data);
+            alertToUser.textContent =
+              "(Lần đánh giá sau sẽ được tính là một đánh giá đã được chỉnh sửa)";
           })
           .catch((error) => {
             console.error("There was an error updating the cart:", error);
@@ -389,7 +400,7 @@ async function updatedReview(foods) {
 }
 
 // button rate star
-function ratingReviewClick() {
+export function ratingReviewClick() {
   const stars = document.querySelectorAll(".rating i");
 
   stars.forEach((item, index) => {
@@ -404,7 +415,7 @@ function ratingReviewClick() {
 }
 
 // show rating
-function showRatingStar(selectedStar) {
+export function showRatingStar(selectedStar) {
   let starsHTML = "";
   for (let i = 0; i < 5; i++) {
     if (i < selectedStar) {
@@ -417,7 +428,7 @@ function showRatingStar(selectedStar) {
 }
 
 // show user name
-async function showName(id) {
+export async function showName(id) {
   try {
     const users = await getUsers();
     const user = users.find((user) => user.user_id === id);
@@ -428,7 +439,7 @@ async function showName(id) {
   }
 }
 
-async function showAvatar(id) {
+export async function showAvatar(id) {
   try {
     const users = await getUsers();
     const user = users.find((user) => user.user_id === id);

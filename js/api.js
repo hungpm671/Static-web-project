@@ -17,3 +17,9 @@ export async function getFoods() {
   const res = await foods.get("product-list");
   return res.data;
 }
+
+// Store Reviews API
+export async function getReviews() {
+  const res = await foods.get("review-store");
+  return res.data;
+}

@@ -420,3 +420,21 @@ input[type="password"]::-ms-clear {
 #confirm-information #user-input {
   padding: 10px 15px;
 }
+
+/* store review */
+.store-review {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  animation: zoomup 500ms ease;
+}
+
+.store-star i:hover {
+  color: var(--primary-color);
+}
+
+.store-form input[type="submit"]:hover {
+  background: rgb(215, 162, 2) !important;
+}
+
+.store-review {
+  width: 100%;
+}

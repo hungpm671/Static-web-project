@@ -252,6 +252,16 @@
   border-radius: 9999px !important;
 }
 
+#review .review-item .rating i {
+  font-size: 14px !important;
+  color: #ccc;
+}
+
+#review .review-item .rating i.active {
+  font-size: 14px !important;
+  color: var(--primary-color) !important;
+}
+
 /* footer */
 #footer {
   padding-block: 70px 45px;

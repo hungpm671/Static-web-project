@@ -1,0 +1,676 @@
+[
+  {
+    "id": "1",
+    "food_id": "8851",
+    "name": "Margherita",
+    "price": 200000,
+    "description": "Một loại pizza cổ điển với sự kết hợp đơn giản của phô mai mozzarella, cà chua và húng quế tươi.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "lá húng quế",
+      "dầu ô liu"
+    ],
+    "image": "https://file.hstatic.net/1000389344/file/pizza_margherita_1_7cc92b84ad43444f91f74c28ad92c90f_1024x1024.jpg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [
+      {
+        "user_id": 90,
+        "content": "Ngon",
+        "date": "2024-9-17",
+        "rate": 4
+      }
+    ],
+    "availability": true
+  },
+  {
+    "id": "2",
+    "food_id": "8852",
+    "name": "Pepperoni",
+    "price": 250000,
+    "description": "Pizza với lớp phô mai mozzarella tan chảy và những lát xúc xích pepperoni thơm ngon.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "xúc xích pepperoni",
+      "ớt chuông",
+      "dầu ô liu"
+    ],
+    "image": "https://riotfest.org/wp-content/uploads/2016/10/IMG_0545.jpg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "3",
+    "food_id": "8853",
+    "name": "BBQ Chicken",
+    "price": 270000,
+    "description": "Pizza gà BBQ với sốt BBQ đậm đà, gà nướng, hành tây và phô mai cheddar.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt BBQ",
+      "gà nướng",
+      "hành tây",
+      "phô mai cheddar",
+      "ngò rí"
+    ],
+    "image": "https://www.kitchenkonfidence.com/wp-content/uploads/2019/09/BBQ-Chicken-Pizza-6.jpg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "4",
+    "food_id": "8854",
+    "name": "Hawaiian",
+    "price": 260000,
+    "description": "Pizza với hương vị đặc trưng từ thịt giăm bông và dứa, kết hợp với phô mai mozzarella.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "thịt giăm bông",
+      "dứa"
+    ],
+    "image": "https://www.allrecipes.com/thmb/v1Xi2wtebK1sZwSJitdV4MGKl1c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/hawaiian-pizza-ddmfs-3x2-132-450eff04ad924d9a9eae98ca44e3f988.jpg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "5",
+    "food_id": "8855",
+    "name": "Vegetarian",
+    "price": 240000,
+    "description": "Pizza chay với nhiều loại rau củ tươi ngon, phô mai mozzarella và sốt cà chua.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "ớt chuông",
+      "nấm",
+      "cà chua",
+      "hành tây",
+      "oliu đen"
+    ],
+    "image": "https://lirp.cdn-website.com/07572f03/dms3rep/multi/opt/AdobeStock_126451738-1920w.jpeg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "6",
+    "food_id": "8856",
+    "name": "Four Cheese",
+    "price": 280000,
+    "description": "Pizza đặc biệt với sự kết hợp của bốn loại phô mai: mozzarella, cheddar, parmesan, và gorgonzola.",
+    "ingredients": [
+      "Bột pizza",
+      "phô mai mozzarella",
+      "phô mai cheddar",
+      "phô mai parmesan",
+      "phô mai gorgonzola",
+      "sốt kem"
+    ],
+    "image": "https://www.blizzstatic.com/dynamicmedia/image/115/5e981086a7ace.jpg?w=450&h=319",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "7",
+    "food_id": "8857",
+    "name": "Meat Lover's",
+    "price": 300000,
+    "description": "Pizza dành cho người yêu thích thịt, với sự kết hợp của xúc xích, giăm bông, thịt bò và phô mai.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "xúc xích",
+      "giăm bông",
+      "thịt bò",
+      "thịt xông khói"
+    ],
+    "image": "https://cdn11.bigcommerce.com/s-p6vajvx5jy/images/stencil/800x800/products/117/663/Meat_Lovers_2__84120.1556128972.jpg?c=2",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "8",
+    "food_id": "8858",
+    "name": "Mexican",
+    "price": 270000,
+    "description": "Pizza mang phong cách Mexico với sốt salsa cay, thịt bò, ớt jalapeño và phô mai.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt salsa",
+      "thịt bò",
+      "ớt jalapeño",
+      "phô mai mozzarella",
+      "ngò rí"
+    ],
+    "image": "https://usdrybeans.com/wp-content/uploads/2020/10/GettyImages-904333278-2048x1365.jpg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "9",
+    "food_id": "8859",
+    "name": "Seafood",
+    "price": 320000,
+    "description": "Pizza hải sản với sự kết hợp của tôm, mực, nghêu và phô mai mozzarella.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "tôm",
+      "mực",
+      "nghêu",
+      "ớt chuông",
+      "hành tây"
+    ],
+    "image": "https://th.bing.com/th/id/R.a5196406b4c4c74971dfcd2bd533feda?rik=WEAAodZBhHfO%2fg&riu=http%3a%2f%2fwww.atavola.hk%2fwp-content%2fuploads%2f2018%2f05%2fSEAFOOD-PIZZA.jpg&ehk=PQ6ncEDcmtA0SwYK%2bAGbPMxHl3NPtbQu%2fiLaK52mj1M%3d&risl=&pid=ImgRaw&r=0",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "10",
+    "food_id": "8812",
+    "name": "Truffle Mushroom",
+    "price": 350000,
+    "description": "Pizza nấm truffle cao cấp, kết hợp với sốt kem trắng và phô mai.",
+    "ingredients": [
+      "Bột pizza",
+      "sốt kem trắng",
+      "phô mai mozzarella",
+      "nấm truffle",
+      "dầu truffle",
+      "húng tây"
+    ],
+    "image": "https://blog.williams-sonoma.com/wp-content/uploads/2014/09/truffled-mushroom-pizza.jpg",
+    "category": ["Small", "Medium", "Large"],
+    "classify": "pizza",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "11",
+    "food_id": "9001",
+    "name": "Spaghetti Carbonara",
+    "price": 180000,
+    "description": "Món pasta cổ điển của Ý với sốt kem, trứng, thịt xông khói và phô mai parmesan.",
+    "ingredients": [
+      "Mì spaghetti",
+      "trứng",
+      "kem tươi",
+      "thịt xông khói",
+      "phô mai parmesan",
+      "tiêu đen"
+    ],
+    "image": "https://assets-global.website-files.com/5dc471bed6111eb41d6e28dd/5dd8ee4d717b060cba2fe4d7_Quick%20Bacon%20Spaghetti%20Carbonara.jpeg",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "12",
+    "food_id": "9002",
+    "name": "Penne Arrabbiata",
+    "price": 160000,
+    "description": "Pasta penne với sốt cà chua cay nồng, thêm hương vị của ớt đỏ và tỏi.",
+    "ingredients": [
+      "Mì penne",
+      "sốt cà chua",
+      "tỏi",
+      "ớt đỏ",
+      "dầu ô liu",
+      "húng quế"
+    ],
+    "image": "https://theclevermeal.com/wp-content/uploads/2021/07/penne-arrabbiata_1b.jpg",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "13",
+    "food_id": "9003",
+    "name": "Fettuccine Alfredo",
+    "price": 200000,
+    "description": "Món fettuccine với sốt kem trắng đậm đà và phô mai parmesan.",
+    "ingredients": [
+      "Mì fettuccine",
+      "kem tươi",
+      "phô mai parmesan",
+      "bơ",
+      "tiêu đen"
+    ],
+    "image": "https://everybodylovesitalian.com/wp-content/uploads/2020/02/Fettuccine-Alfredo-Recipe-1.jpg?ezimgfmt=ngcb1/notWebP",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "14",
+    "food_id": "9004",
+    "name": "Lasagna",
+    "price": 220000,
+    "description": "Món lasagna xếp lớp với thịt bò băm, sốt cà chua, phô mai mozzarella và phô mai ricotta.",
+    "ingredients": [
+      "Bánh lasagna",
+      "thịt bò băm",
+      "sốt cà chua",
+      "phô mai mozzarella",
+      "phô mai ricotta",
+      "hành tây",
+      "tỏi"
+    ],
+    "image": "https://assets.unileversolutions.com/recipes-v2/232080.jpg?im=Resize,height=530;Crop,size=(540,530),gravity=Center",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "15",
+    "food_id": "9005",
+    "name": "Pesto Pasta",
+    "price": 190000,
+    "description": "Món pasta nhẹ nhàng với sốt pesto từ húng quế, hạt thông và phô mai parmesan.",
+    "ingredients": [
+      "Mì fusilli",
+      "húng quế",
+      "hạt thông",
+      "phô mai parmesan",
+      "tỏi",
+      "dầu ô liu"
+    ],
+    "image": "https://www.acouplecooks.com/wp-content/uploads/2020/08/Spaghetti-Pesto-001.jpg",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "16",
+    "food_id": "9006",
+    "name": "Bolognese",
+    "price": 210000,
+    "description": "Món spaghetti với sốt bolognese đậm đà từ thịt bò và cà chua.",
+    "ingredients": [
+      "Mì spaghetti",
+      "thịt bò băm",
+      "sốt cà chua",
+      "cà rốt",
+      "cần tây",
+      "hành tây",
+      "rượu vang đỏ"
+    ],
+    "image": "https://www.untamedchefcooking.com/wp-content/uploads/2018/01/Spaghetti-Bolognese.png",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "17",
+    "food_id": "9007",
+    "name": "Ravioli",
+    "price": 230000,
+    "description": "Món ravioli nhân phô mai ricotta và rau spinach, ăn kèm với sốt bơ và xô thơm.",
+    "ingredients": [
+      "Bột mì",
+      "trứng",
+      "phô mai ricotta",
+      "rau spinach",
+      "bơ",
+      "xô thơm"
+    ],
+    "image": "https://www.rosinarecipes.com/ImageRepository/Recipes/celentano-4-cheese-ravioli-asparagus-cherry-tomato.jpg",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "18",
+    "food_id": "9008",
+    "name": "Linguine alle Vongole",
+    "price": 240000,
+    "description": "Món linguine với nghêu tươi, sốt rượu vang trắng, tỏi và dầu ô liu.",
+    "ingredients": [
+      "Mì linguine",
+      "nghêu",
+      "rượu vang trắng",
+      "tỏi",
+      "dầu ô liu",
+      "húng quế"
+    ],
+    "image": "https://inthekitchenwithkath.com/wp-content/uploads/2010/03/linguine-con-le-vongole.jpg?w=1200&h=900",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "19",
+    "food_id": "9009",
+    "name": "Tortellini",
+    "price": 250000,
+    "description": "Món tortellini nhân thịt heo và phô mai, ăn kèm với sốt kem hoặc sốt cà chua.",
+    "ingredients": [
+      "Bột mì",
+      "trứng",
+      "thịt heo",
+      "phô mai ricotta",
+      "phô mai parmesan",
+      "hạt nhục đậu khấu"
+    ],
+    "image": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1456,h_1092/k%2Farchive%2F9bbf07cb31d5ed6f536454f6792d96f16c7bc26b",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "20",
+    "food_id": "9010",
+    "name": "Gnocchi",
+    "price": 260000,
+    "description": "Món gnocchi với khoai tây mềm mịn, ăn kèm với sốt cà chua hoặc sốt kem.",
+    "ingredients": [
+      "Khoai tây",
+      "bột mì",
+      "trứng",
+      "phô mai parmesan",
+      "sốt cà chua",
+      "sốt kem"
+    ],
+    "image": "https://insanelygoodrecipes.com/wp-content/uploads/2022/07/Gnocchi-.jpg",
+    "category": [],
+    "classify": "pasta",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "21",
+    "food_id": "9101",
+    "name": "Classic Beef Burger",
+    "price": 150000,
+    "description": "Burger bò cổ điển với thịt bò nướng, phô mai cheddar, rau xà lách, cà chua và sốt mayonnaise.",
+    "ingredients": [
+      "Bánh mì burger",
+      "thịt bò nướng",
+      "phô mai cheddar",
+      "rau xà lách",
+      "cà chua",
+      "sốt mayonnaise"
+    ],
+    "image": "https://www.appetitemag.co.uk/wp-content/uploads/2017/09/ButcherBurger.jpg.webp",
+    "category": ["Regular", "Double", "Triple"],
+    "classify": "burger",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "22",
+    "food_id": "9102",
+    "name": "Chicken Burger",
+    "price": 140000,
+    "description": "Burger gà giòn với ức gà chiên giòn, rau xà lách, cà chua và sốt mayonnaise.",
+    "ingredients": [
+      "Bánh mì burger",
+      "ức gà chiên giòn",
+      "rau xà lách",
+      "cà chua",
+      "sốt mayonnaise"
+    ],
+    "image": "https://cdn.cookmonkeys.es/recetas/medium/hamburguesa-de-pollo-1-13554.jpg",
+    "category": ["Regular", "Double", "Triple"],
+    "classify": "burger",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "23",
+    "food_id": "9103",
+    "name": "Bacon Cheeseburger",
+    "price": 160000,
+    "description": "Burger bò với thịt xông khói, phô mai cheddar, dưa chuột ngâm và sốt BBQ.",
+    "ingredients": [
+      "Bánh mì burger",
+      "thịt bò nướng",
+      "thịt xông khói",
+      "phô mai cheddar",
+      "dưa chuột ngâm",
+      "sốt BBQ"
+    ],
+    "image": "https://www.tasteofhome.com/wp-content/uploads/2018/01/All-American-Bacon-Cheeseburgers_EXPS_FT24_48107_ST_0522_6.jpg?fit=700,1024",
+    "category": ["Regular", "Double", "Triple"],
+    "classify": "burger",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "24",
+    "food_id": "9104",
+    "name": "Veggie Burger",
+    "price": 130000,
+    "description": "Burger chay với patty rau củ, phô mai, rau xà lách, cà chua và sốt mayonnaise.",
+    "ingredients": [
+      "Bánh mì burger",
+      "patty rau củ",
+      "phô mai",
+      "rau xà lách",
+      "cà chua",
+      "sốt mayonnaise"
+    ],
+    "image": "https://theviewfromgreatisland.com/wp-content/uploads/2013/06/077-001-e1663884245215-600x400.jpg",
+    "category": ["Regular", "Double", "Triple"],
+    "classify": "burger",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "25",
+    "food_id": "9105",
+    "name": "Mushroom Swiss Burger",
+    "price": 170000,
+    "description": "Burger với thịt bò nướng, nấm xào, phô mai Thụy Sĩ và sốt kem nấm.",
+    "ingredients": [
+      "Bánh mì burger",
+      "thịt bò nướng",
+      "nấm xào",
+      "phô mai Thụy Sĩ",
+      "sốt kem nấm"
+    ],
+    "image": "https://d2lswn7b0fl4u2.cloudfront.net/photos/pg-mushroom-swiss-burger-1612796532.jpg",
+    "category": ["Regular", "Double", "Triple"],
+    "classify": "burger",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "26",
+    "food_id": "9201",
+    "name": "Classic French Fries",
+    "price": 50000,
+    "description": "Khoai tây chiên giòn, được chế biến theo cách cổ điển với một chút muối.",
+    "ingredients": ["Khoai tây", "dầu thực vật", "muối"],
+    "image": "https://lapequenacolombiatampa.com/restaurante/wp-content/uploads/sites/3/2023/08/PapaFritas-600x600.jpg",
+    "category": ["Regular", "Large"],
+    "classify": "fries",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "27",
+    "food_id": "9301",
+    "name": "Coca-Cola Classic",
+    "price": 15000,
+    "description": "Nước giải khát Coca-Cola Classic, hương vị truyền thống.",
+    "ingredients": [
+      "Nước gaz",
+      "đường",
+      "caramel color",
+      "axit phosphoric",
+      "chất tạo ngọt"
+    ],
+    "image": "https://www.mashed.com/img/gallery/a-can-of-coca-cola-is-being-sold-for-over-300000/l-intro-1683831628.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "28",
+    "food_id": "9302",
+    "name": "Coca-Cola Zero Sugar",
+    "price": 15000,
+    "description": "Nước giải khát Coca-Cola không đường, hương vị giống Coca-Cola Classic.",
+    "ingredients": [
+      "Nước gaz",
+      "chất tạo ngọt",
+      "caramel color",
+      "axit phosphoric",
+      "chất tạo hương"
+    ],
+    "image": "https://media.post.rvohealth.io/wp-content/uploads/2019/08/is-coke-zero-bad-for-you-732x549-thumbnail.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "29",
+    "food_id": "9303",
+    "name": "Pepsi",
+    "price": 15000,
+    "description": "Nước giải khát Pepsi với hương vị ngọt ngào và sảng khoái.",
+    "ingredients": [
+      "Nước gaz",
+      "đường",
+      "caramel color",
+      "axit phosphoric",
+      "chất tạo ngọt"
+    ],
+    "image": "https://live27media.com/wp-content/uploads/2021/08/5-177.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "30",
+    "food_id": "9304",
+    "name": "Pepsi Max",
+    "price": 15000,
+    "description": "Pepsi Max không đường, vẫn giữ được hương vị đầy đủ.",
+    "ingredients": [
+      "Nước gaz",
+      "chất tạo ngọt",
+      "caramel color",
+      "axit phosphoric",
+      "chất tạo hương"
+    ],
+    "image": "https://www.britvic.com/media/tsblg42v/pepsi-max-lime.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "31",
+    "food_id": "9305",
+    "name": "Fanta Orange",
+    "price": 15000,
+    "description": "Nước giải khát Fanta với hương vị cam tươi mát.",
+    "ingredients": [
+      "Nước gaz",
+      "đường",
+      "hương cam tự nhiên",
+      "axit citric",
+      "chất tạo màu"
+    ],
+    "image": "https://i.pinimg.com/236x/8d/9f/c5/8d9fc5c5b93cb98400bb03c4a2cf4027.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "32",
+    "food_id": "9306",
+    "name": "Fanta Grape",
+    "price": 15000,
+    "description": "Fanta với hương vị nho tươi ngon và sảng khoái.",
+    "ingredients": [
+      "Nước gaz",
+      "đường",
+      "hương nho tự nhiên",
+      "axit citric",
+      "chất tạo màu"
+    ],
+    "image": "https://i.pinimg.com/originals/a5/5e/98/a55e98e722008abc795d23445d17d03c.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "33",
+    "food_id": "9307",
+    "name": "7UP",
+    "price": 15000,
+    "description": "Nước giải khát 7UP với hương chanh tươi mát.",
+    "ingredients": [
+      "Nước gaz",
+      "đường",
+      "hương chanh tự nhiên",
+      "axit citric",
+      "chất tạo màu"
+    ],
+    "image": "https://11minimarket.com/wp-content/uploads/2021/07/7Up-320Mlx30-Cans.jpg",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  },
+  {
+    "id": "34",
+    "food_id": "9309",
+    "name": "Mirinda Orange",
+    "price": 15000,
+    "description": "Nước giải khát Mirinda với hương vị cam đặc trưng.",
+    "ingredients": [
+      "Nước gaz",
+      "đường",
+      "hương cam tự nhiên",
+      "axit citric",
+      "chất tạo màu"
+    ],
+    "image": "https://static.vecteezy.com/system/resources/previews/031/234/743/large_2x/kyiv-ukraine-july-7-2023-mirinda-orange-drink-with-many-oranges-on-colorful-background-free-photo.JPG",
+    "category": ["Lạnh"],
+    "classify": "soda",
+    "rating": [],
+    "availability": true
+  }
+]
